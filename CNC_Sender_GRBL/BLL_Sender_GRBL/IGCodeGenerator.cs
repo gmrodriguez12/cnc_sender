@@ -12,9 +12,9 @@ namespace BLL_Sender_GRBL
         public abstract StringBuilder GenerateGCode(Geometric shape);
         public abstract StringBuilder GenerateSimulatorGCode(Geometric shape);
 
-        public StringBuilder ReturnToOrigin()
+        public string ReturnToOrigin()
         {
-            throw new NotImplementedException();
+            return "G0 X0 Y0 Z0";
         }
 
         public string ToggleRele(bool on)

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="Enum\EnumHelpers.cs" />
     <Compile Include="Geometric.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="Point.cs" />
@@ -50,8 +51,6 @@
     <Compile Include="Square.cs" />
     <Compile Include="Triangle.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enum\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

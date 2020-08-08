@@ -9,12 +9,12 @@ namespace BLL_Sender_GRBL.ShapeGCodeGenerator
 {
     internal class GCodeCircle : IGCodeGenerator
     {
-        public StringBuilder GenerateGCode(Geometric shape)
+        public override StringBuilder GenerateGCode(Geometric shape)
         {
             throw new NotImplementedException();
         }
 
-        public StringBuilder GenerateSimulatorGCode(Geometric shape)
+        public override StringBuilder GenerateSimulatorGCode(Geometric shape)
         {
             throw new NotImplementedException();
         }
