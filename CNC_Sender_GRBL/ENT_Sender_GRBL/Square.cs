@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ENT_Sender_GRBL
 {
-    class Square
+    public class Square : Geometric
     {
+        public decimal Side { get; set; }
     }
 }

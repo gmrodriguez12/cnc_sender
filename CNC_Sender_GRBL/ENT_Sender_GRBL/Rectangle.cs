@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ENT_Sender_GRBL
 {
-    public class Line : Geometric
+    public class Rectangle : Geometric
     {
-        public Point Start { get; set; }
-        public Point Finish { get; set; }
+        public decimal MinorSide { get; set; }
+        public decimal PajorSide { get; set; }
     }
 }

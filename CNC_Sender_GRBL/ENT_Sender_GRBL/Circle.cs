@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ENT_Sender_GRBL
 {
-    public class Line : Geometric
+    public class Circle
     {
-        public Point Start { get; set; }
-        public Point Finish { get; set; }
+        public Point Center { get; set; }
+        public decimal Radio { get; set; }
     }
 }

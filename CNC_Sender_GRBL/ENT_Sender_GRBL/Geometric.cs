@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL_Sender_GRBL
+namespace ENT_Sender_GRBL
 {
-    public class Class1
+    public class Geometric
     {
+        public Point Origin { get; set; }
     }
 }

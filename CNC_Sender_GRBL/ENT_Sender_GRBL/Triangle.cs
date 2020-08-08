@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ENT_Sender_GRBL
 {
-    public class Line : Geometric
+    public class Triangle : Geometric
     {
-        public Point Start { get; set; }
-        public Point Finish { get; set; }
+        public decimal LengthBase { get; set; }
+        public decimal Height { get; set; }
     }
 }
