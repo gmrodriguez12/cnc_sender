@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL_Sender_GRBL", "BLL_Send
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENT_Sender_GRBL", "ENT_Sender_GRBL\ENT_Sender_GRBL.csproj", "{45C6C63C-82C0-4419-80AD-1CA1DD504B46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{900BF94B-6992-461D-A2F9-EB7535F6DD76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{45C6C63C-82C0-4419-80AD-1CA1DD504B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45C6C63C-82C0-4419-80AD-1CA1DD504B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45C6C63C-82C0-4419-80AD-1CA1DD504B46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{900BF94B-6992-461D-A2F9-EB7535F6DD76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900BF94B-6992-461D-A2F9-EB7535F6DD76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900BF94B-6992-461D-A2F9-EB7535F6DD76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900BF94B-6992-461D-A2F9-EB7535F6DD76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
