@@ -36,16 +36,17 @@ namespace TestConsole
 
             //Console.WriteLine(sb.ToString());
 
-            Square square = new Square()
+            Rectangle rectangle = new Rectangle()
             {
-                Start = new Point(2, 3, 1),
+                Start = new Point(1, 1, 1),
                 Feed = 150,
                 SafetyHeightZ = 10,
-                Length = 5
+                Length = 6,
+                Width = 2
             };
 
-            var geometric = GCodeFactory.Build((short)TypeGeometric.Square);
-            StringBuilder sb = geometric.GenerateSimulatorGCode(square);
+            var geometric = GCodeFactory.Build((short)TypeGeometric.Rectangle);
+            StringBuilder sb = geometric.GenerateSimulatorGCode(rectangle);
 
             Console.WriteLine(sb.ToString());
 
