@@ -8,9 +8,9 @@ using static ENT_Sender_GRBL.Enum.EnumHelpers;
 
 namespace BLL_Sender_GRBL
 {
-    public class GCodeFactory
+    public static class GCodeFactory
     {
-        public IGCodeGenerator Build(short geometricType)
+        public static IGCodeGenerator Build(short geometricType)
         {
             switch(geometricType)
             {

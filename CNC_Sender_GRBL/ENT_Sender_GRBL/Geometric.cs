@@ -8,6 +8,10 @@ namespace ENT_Sender_GRBL
 {
     public class Geometric
     {
-        public Point Origin { get; set; }
+        public Point Start { get; set; }
+
+        public decimal Feed { get; set; }
+
+        public decimal SafetyHeightZ { get; set; }
     }
 }

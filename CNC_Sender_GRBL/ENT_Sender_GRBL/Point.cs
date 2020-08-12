@@ -11,5 +11,6 @@ namespace ENT_Sender_GRBL
         public decimal X { get; set; }
         public decimal Y { get; set; }
         public decimal Z { get; set; }
+        public decimal Feed { get; set; }
     }
 }

@@ -11,18 +11,40 @@ namespace BLL_Sender_GRBL.ShapeGCodeGenerator
     {
         public override StringBuilder GenerateGCode(Geometric shape)
         {
-            /*
-             G0 X2 Y2
-                G1 X2 Y5 F150
-                G0 X0 Y0
-             */
-
-            throw new NotImplementedException();
+            Line line = (Line)shape;
+            return GenerateGCode(line, false);
         }
 
         public override StringBuilder GenerateSimulatorGCode(Geometric shape)
         {
-            throw new NotImplementedException();
+            Line line = (Line)shape;
+            return GenerateGCode(line, true);
         }
+
+        private StringBuilder GenerateGCode(Line line, bool isSimulator)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(GMovement(line.Start, line.Feed, "G0"));
+
+            if(!isSimulator)
+                sb.AppendLine(ToggleRele(true));
+
+            sb.AppendLine(GMovement(line.Finish, line.Feed, "G1"));
+
+            if(!isSimulator)
+                sb.AppendLine(ToggleRele(false));
+
+            sb.AppendLine(ReturnToHome(line.SafetyHeightZ));
+
+            return sb;
+        }
+
+        /*
+         * Example Gcode
+            G0 X2 Y2
+            G1 X2 Y5 F150
+            G0 X0 Y0
+        */
+
     }
 }

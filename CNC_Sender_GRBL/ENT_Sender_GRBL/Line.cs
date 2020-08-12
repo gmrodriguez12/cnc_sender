@@ -8,7 +8,6 @@ namespace ENT_Sender_GRBL
 {
     public class Line : Geometric
     {
-        public Point Start { get; set; }
         public Point Finish { get; set; }
     }
 }
