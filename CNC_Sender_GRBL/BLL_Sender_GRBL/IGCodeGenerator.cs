@@ -26,5 +26,10 @@ namespace BLL_Sender_GRBL
         {
             return $"{typeMovement} X{point.X} Y{point.Y} Z{point.Z} F{feed}";
         }
+
+        public string GMovement(Point point, string typeMovement)
+        {
+            return $"{typeMovement} X{point.X} Y{point.Y} Z{point.Z}";
+        }
     }
 }

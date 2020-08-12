@@ -24,7 +24,7 @@ namespace BLL_Sender_GRBL.ShapeGCodeGenerator
         private StringBuilder GenerateGCode(Line line, bool isSimulator)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(GMovement(line.Start, line.Feed, "G0"));
+            sb.AppendLine(GMovement(line.Start, "G0"));
 
             if(!isSimulator)
                 sb.AppendLine(ToggleRele(true));
