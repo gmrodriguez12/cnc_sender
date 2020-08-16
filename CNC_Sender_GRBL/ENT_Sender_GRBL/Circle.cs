@@ -9,6 +9,6 @@ namespace ENT_Sender_GRBL
     public class Circle
     {
         public Point Center { get; set; }
-        public decimal Radio { get; set; }
+        public double Radio { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace ENT_Sender_GRBL.Enum
             Square,
             Rectangle,
             Circle,
-            Triangle
+            TriangleRectangle
         }
     }
 }

@@ -10,8 +10,8 @@ namespace ENT_Sender_GRBL
     {
         public Point Start { get; set; }
 
-        public decimal Feed { get; set; }
+        public double Feed { get; set; }
 
-        public decimal SafetyHeightZ { get; set; }
+        public double SafetyHeightZ { get; set; }
     }
 }

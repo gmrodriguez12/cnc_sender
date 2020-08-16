@@ -23,8 +23,8 @@ namespace BLL_Sender_GRBL
                 case (short)TypeGeometric.Circle:
                     return new GCodeCircle();
 
-                case (short)TypeGeometric.Triangle:
-                    return new GCodeTriangle();
+                case (short)TypeGeometric.TriangleRectangle:
+                    return new GCodeTriangleRectangle();
 
                 default:
                     return new GCodeLines();

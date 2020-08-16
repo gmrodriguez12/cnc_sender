@@ -8,8 +8,8 @@ namespace ENT_Sender_GRBL
 {
     public class Rectangle : Geometric
     {
-        public decimal Width { get; set; }
-        public decimal Length { get; set; }
+        public double Width { get; set; }
+        public double Length { get; set; }
 
         public Point A
         {
@@ -36,7 +36,7 @@ namespace ENT_Sender_GRBL
         }
     }
 
-    //public decimal Length { get; set; }
+    //publicdouble Length { get; set; }
 
 
     //A = X Y+l Z F

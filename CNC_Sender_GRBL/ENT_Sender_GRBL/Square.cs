@@ -8,7 +8,7 @@ namespace ENT_Sender_GRBL
 {
     public class Square : Geometric
     {
-        public decimal Length { get; set; }
+        public double Length { get; set; }
 
         public Point A { get
             {

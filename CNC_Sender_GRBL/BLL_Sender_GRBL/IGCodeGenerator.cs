@@ -12,7 +12,7 @@ namespace BLL_Sender_GRBL
         public abstract StringBuilder GenerateGCode(Geometric shape);
         public abstract StringBuilder GenerateSimulatorGCode(Geometric shape);
 
-        public string ReturnToHome(decimal safetyHeightZ)
+        public string ReturnToHome(double safetyHeightZ)
         {
             return $"G0 X0 Y0 Z{safetyHeightZ}";
         }
@@ -22,7 +22,7 @@ namespace BLL_Sender_GRBL
             return on ? "M3" : "M5";
         }
 
-        public string GMovement(Point point, decimal feed, string typeMovement)
+        public string GMovement(Point point,double feed, string typeMovement)
         {
             return $"{typeMovement} X{point.X} Y{point.Y} Z{point.Z} F{feed}";
         }
