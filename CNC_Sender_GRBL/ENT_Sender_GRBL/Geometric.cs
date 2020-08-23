@@ -8,7 +8,7 @@ namespace ENT_Sender_GRBL
 {
     public class Geometric
     {
-        public Point Start { get; set; }
+        public virtual Point Start { get; set; }
 
         public double Feed { get; set; }
 

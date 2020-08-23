@@ -31,5 +31,11 @@ namespace BLL_Sender_GRBL
         {
             return $"{typeMovement} X{point.X} Y{point.Y} Z{point.Z}";
         }
+
+        public string GArc(Point end, double i, double j, bool clockWise)
+        {
+            string typeMovement = clockWise ? "G2" : "G3";
+            return $"{typeMovement} X{end.X} Y{end.Y} I{i} J{j}";
+        }
     }
 }

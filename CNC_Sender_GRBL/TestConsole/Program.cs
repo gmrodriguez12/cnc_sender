@@ -45,17 +45,19 @@ namespace TestConsole
             //    Width = 2
             //};
 
-            TriangleRectangle triangle = new TriangleRectangle()
-            {
-                Start = new Point(2, 0, 1),
-                Feed = 150,
-                SafetyHeightZ = 10,
-                LengthSide = 1,
-                HeigthSide = 3
-            };
+            //TriangleRectangle triangle = new TriangleRectangle()
+            //{
+            //    Start = new Point(2, 0, 1),
+            //    Feed = 150,
+            //    SafetyHeightZ = 10,
+            //    LengthSide = 1,
+            //    HeigthSide = 3
+            //};
 
-            var geometric = GCodeFactory.Build((short)TypeGeometric.TriangleRectangle);
-            StringBuilder sb = geometric.GenerateSimulatorGCode(triangle);
+            Circle circle = new Circle(1, 1, 1, 500);
+
+            var geometric = GCodeFactory.Build((short)TypeGeometric.Circle);
+            StringBuilder sb = geometric.GenerateSimulatorGCode(circle);
 
             Console.WriteLine(sb.ToString());
 

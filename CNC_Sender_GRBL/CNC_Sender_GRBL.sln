@@ -40,4 +40,8 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C97C781-1ED3-49B2-941A-969D4524B5D1}
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		description = Basic Gcode generator for Plasma Cut
+		version = 1.0
+	EndGlobalSection
 EndGlobal

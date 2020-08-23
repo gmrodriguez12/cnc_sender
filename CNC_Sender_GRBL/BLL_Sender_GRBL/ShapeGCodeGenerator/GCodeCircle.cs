@@ -11,12 +11,32 @@ namespace BLL_Sender_GRBL.ShapeGCodeGenerator
     {
         public override StringBuilder GenerateGCode(Geometric shape)
         {
-            throw new NotImplementedException();
+            Circle circle = (Circle)shape;
+            return GenerateGcode(circle, false);
         }
 
         public override StringBuilder GenerateSimulatorGCode(Geometric shape)
         {
-            throw new NotImplementedException();
+            Circle circle = (Circle)shape;
+            return GenerateGcode(circle, true);
+        }
+
+        private StringBuilder GenerateGcode(Circle circle, bool isSimulator)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(GMovement(circle.Start, "G0"));
+
+            if (!isSimulator)
+                sb.AppendLine(ToggleRele(true));
+
+            sb.AppendLine(GMovement(circle.Start, circle.Feed, "G1"));
+            sb.AppendLine(GArc(circle.End, circle.Radio, 0, true));
+
+            if (!isSimulator)
+                sb.AppendLine(ToggleRele(false));
+
+            sb.AppendLine(ReturnToHome(circle.SafetyHeightZ));
+            return sb;
         }
     }
 }
