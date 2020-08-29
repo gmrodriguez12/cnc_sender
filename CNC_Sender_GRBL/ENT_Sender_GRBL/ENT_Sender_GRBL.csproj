@@ -52,6 +52,7 @@
     <Compile Include="Square.cs" />
     <Compile Include="TriangleRectangle.cs" />
     <Compile Include="CustomExceptions\CircleException.cs" />
+    <Compile Include="CustomExceptions\SerialPortException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomExceptions\" />

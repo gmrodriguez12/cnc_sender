@@ -1,4 +1,5 @@
 ﻿using BLL_Sender_GRBL;
+using BLL_Sender_GRBL.GCodeGenerator;
 using ENT_Sender_GRBL;
 using System;
 using System.Collections.Generic;
@@ -53,11 +54,25 @@ namespace TestConsole
             //    LengthSide = 1,
             //    HeigthSide = 3
             //};
+            StringBuilder sb1 = new StringBuilder();
+            sb1.AppendLine("Ln1");
+            sb1.AppendLine("Ln2");
+            sb1.AppendLine("Ln3");
+
+            string[] lines = sb1.ToString().Split(Environment.NewLine.ToCharArray());
+
+            foreach(var line in lines)
+            {
+                Console.WriteLine("line: " + line);
+            }
+
+            Console.ReadLine();
 
             Circle circle = new Circle(1, 1, 1, 500);
+            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
 
-            var geometric = GCodeFactory.Build((short)TypeGeometric.Circle);
-            StringBuilder sb = geometric.GenerateSimulatorGCode(circle);
+            IGCodeGenerator shapeGenerator = gcodeFactory.Build((short)TypeGeometric.Circle);
+            StringBuilder sb = shapeGenerator.GenerateSimulatorGCode(circle);
 
             Console.WriteLine(sb.ToString());
 
