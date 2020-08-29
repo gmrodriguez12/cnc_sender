@@ -12,7 +12,7 @@ namespace BLL_Sender_GRBL.SerialPortManager
 
         public static string[] ListAvailablePorts()
         {
-            throw new NotImplementedException();
+            return SerialPort.GetPortNames();
         }
 
         public static void OpenConnection(string portName)
@@ -20,16 +20,14 @@ namespace BLL_Sender_GRBL.SerialPortManager
             serial.PortName = portName;
             serial.BaudRate = 115200;
             serial.DataBits = 8;
-            serial.Parity = Parity.None; //?
-            serial.StopBits = StopBits.One; //?
-            serial.Handshake = Handshake.None; //?
+            serial.Parity = Parity.None;
+            serial.StopBits = StopBits.One;
+            serial.Handshake = Handshake.None;
             serial.NewLine = "\n";
             serial.WriteTimeout = 1000;
-            serial.DtrEnable = false; //?
-            serial.RtsEnable = false; //?
+            serial.DtrEnable = false;
+            serial.RtsEnable = false;
             serial.Open();
-            serial.DiscardOutBuffer();
-            serial.DiscardInBuffer();
         }
 
         public static void CloseConnection()
