@@ -14,7 +14,7 @@ namespace BLL_Sender_GRBL.GCodeGenerator.SimpleMovements
 
         public string SetHomePoint()
         {
-            throw new NotImplementedException();
+            return "G10 P0 L20 X0 Y0 Z0";
         }
     }
 }
