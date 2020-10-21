@@ -56,15 +56,13 @@ namespace CNC_Sender_GRBL_09
         private void BtnSetHome_Click(object sender, EventArgs e)
         {
             GCodeHome home = new GCodeHome();
-            home.SetHomePoint();
-
+            txtGCodeSquare.Text = home.SetHomePoint();
         }
 
         private void BtnHoming_Click(object sender, EventArgs e)
         {
             GCodeHome home = new GCodeHome();
-            home.ReturnToHome(SAFE_VERTICAL_HEIGHT_CM);
-
+            txtGCodeSquare.Text = home.ReturnToHome(SAFE_VERTICAL_HEIGHT_CM);
         }
 
         private void BtnGenerateSquare_Click(object sender, EventArgs e)
