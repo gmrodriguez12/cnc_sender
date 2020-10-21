@@ -1,11 +1,8 @@
 ﻿
-using BLL_Sender_GRBL.GCodeGenerator;
-using BLL_Sender_GRBL.GCodeGenerator.SimpleMovements;
-using BLL_Sender_GRBL.SerialPortManager;
-using ENT_Sender_GRBL;
 using System;
 using System.Text;
 using System.Windows.Forms;
+using BLL_GRBL_Sender;
 
 namespace TestForms
 {
@@ -22,55 +19,55 @@ namespace TestForms
 
         private void LoadSerialPorts()
         {
-            string[] ports = SerialPortManager.ListAvailablePorts();
-            cboCom.DataSource = ports;
+            //string[] ports = SerialPortManager.ListAvailablePorts();
+            //cboCom.DataSource = ports;
         }
 
         private void BtnOpen_Click(object sender, EventArgs e)
         {
-            SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());
+            //SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            SerialPortManager.CloseConnection();
+            //SerialPortManager.CloseConnection();
         }
 
         private void BtnSetHome_Click(object sender, EventArgs e)
         {
-            GCodeHome home = new GCodeHome();
-            home.SetHomePoint();
+            //GCodeHome home = new GCodeHome();
+            //home.SetHomePoint();
         }
 
         private void BtnHoming_Click(object sender, EventArgs e)
         {
-            GCodeHome home = new GCodeHome();
-            home.ReturnToHome(SAFE_VERTICAL_HEIGHT_CM);
+            //GCodeHome home = new GCodeHome();
+            //home.ReturnToHome(SAFE_VERTICAL_HEIGHT_CM);
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
+            //GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
 
-            bool simulate = chkSimulateSquare.Checked;
+            //bool simulate = chkSimulateSquare.Checked;
 
-            Square squareTest = new Square()
-            {
-                Start = new ENT_Sender_GRBL.Point(2, 2, simulate ? 5 : 0),
-                Feed = 150,
-                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
-                Length = double.Parse(txtSquareSide.Text)
-            };
+            //Square squareTest = new Square()
+            //{
+            //    Start = new ENT_Sender_GRBL.Point(2, 2, simulate ? 5 : 0),
+            //    Feed = 150,
+            //    SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
+            //    Length = double.Parse(txtSquareSide.Text)
+            //};
 
-            IGCodeGenerator shapeGenerator = gcodeFactory.Build((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square);
-            StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(squareTest);
-            txtGCodeSquare.Text = gCodeCmd.ToString();
-            bufferCode = gCodeCmd;
+            //IGCodeGenerator shapeGenerator = gcodeFactory.Build((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square);
+            //StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(squareTest);
+            //txtGCodeSquare.Text = gCodeCmd.ToString();
+            //bufferCode = gCodeCmd;
         }
 
         private void BtnCutSquare_Click(object sender, EventArgs e)
         {
-            SerialPortManager.ExecuteCommands(bufferCode);
+            //SerialPortManager.ExecuteCommands(bufferCode);
         }
 
         private void Label2_Click(object sender, EventArgs e)
