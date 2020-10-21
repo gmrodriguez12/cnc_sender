@@ -38,6 +38,14 @@ namespace BLL_Sender_GRBL.SerialPortManager
                 throw new SerialPortException("The connection to the serial port was already closed");
         }
 
+        public static void ExecuteCommand(string line)
+        {
+            if (!string.IsNullOrEmpty(line))
+            {
+                serial.WriteLine(line);
+            }
+        }
+
         public static void ExecuteCommands(string[] lines)
         {
             if (lines == null || lines.Length == 0)
