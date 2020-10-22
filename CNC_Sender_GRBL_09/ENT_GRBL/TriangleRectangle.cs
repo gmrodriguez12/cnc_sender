@@ -8,14 +8,14 @@ namespace ENT_Sender_GRBL
 {
     public class TriangleRectangle : Geometric
     {
-        public double LengthSide { get; set; }
-        public double HeigthSide { get; set; }
+        public double Length { get; set; }
+        public double Heigth { get; set; }
 
         public Point A
         {
             get
             {
-                return new Point(Start.X + LengthSide, Start.Y, Start.Z);
+                return new Point(Start.X + Length, Start.Y, Start.Z);
             }
         }
 
@@ -24,7 +24,7 @@ namespace ENT_Sender_GRBL
         {
             get
             {
-                return new Point(Start.X + LengthSide, Start.Y + HeigthSide, Start.Z);
+                return new Point(Start.X + Length, Start.Y + Heigth, Start.Z);
             }
         }
     }

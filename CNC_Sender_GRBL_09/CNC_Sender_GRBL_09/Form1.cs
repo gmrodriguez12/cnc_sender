@@ -43,7 +43,7 @@ namespace CNC_Sender_GRBL_09
             }
             catch(Exception ex)
             {
-                txtGCodeSquare.Text = ex.Message;
+                txtGCode.Text = ex.Message;
                 lblStatus.Text = "Error";
             }
         }
@@ -57,7 +57,7 @@ namespace CNC_Sender_GRBL_09
         {
             GCodeHome home = new GCodeHome();
             string gCode = home.SetHomePoint();
-            txtGCodeSquare.Text = gCode;
+            txtGCode.Text = gCode;
 
             SerialPortManager.ExecuteCommand(gCode);
         }
@@ -66,7 +66,7 @@ namespace CNC_Sender_GRBL_09
         {
             GCodeHome home = new GCodeHome();
             string gCode = home.ReturnToHome(SAFE_VERTICAL_HEIGHT_CM);
-            txtGCodeSquare.Text = gCode;
+            txtGCode.Text = gCode;
 
             SerialPortManager.ExecuteCommand(gCode);
         }
@@ -87,7 +87,7 @@ namespace CNC_Sender_GRBL_09
 
             IGCodeGenerator shapeGenerator = gcodeFactory.Build((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square);
             StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(squareTest);
-            txtGCodeSquare.Text = gCodeCmd.ToString();
+            txtGCode.Text = gCodeCmd.ToString();
             bufferCode = gCodeCmd;
         }
 
@@ -100,7 +100,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text)* -1;
             StringBuilder sb = simpleMovements.MoveX(distance, feed);
-            txtGCodeSquare.Text = sb.ToString();
+            txtGCode.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -109,7 +109,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text);
             StringBuilder sb = simpleMovements.MoveX(distance, feed);
-            txtGCodeSquare.Text = sb.ToString();
+            txtGCode.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -118,7 +118,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text) * -1;
             StringBuilder sb = simpleMovements.MoveY(distance, feed);
-            txtGCodeSquare.Text = sb.ToString();
+            txtGCode.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -127,7 +127,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text);
             StringBuilder sb = simpleMovements.MoveY(distance, feed);
-            txtGCodeSquare.Text = sb.ToString();
+            txtGCode.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -136,7 +136,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text);
             StringBuilder sb = simpleMovements.MoveZ(distance, feed);
-            txtGCodeSquare.Text = sb.ToString();
+            txtGCode.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -145,9 +145,14 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text) * -1;
             StringBuilder sb = simpleMovements.MoveZ(distance, feed);
-            txtGCodeSquare.Text = sb.ToString();
+            txtGCode.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
