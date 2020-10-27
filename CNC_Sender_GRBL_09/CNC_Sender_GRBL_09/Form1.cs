@@ -72,24 +72,30 @@ namespace CNC_Sender_GRBL_09
         }
 
         private void BtnGenerateSquare_Click(object sender, EventArgs e)
-        {
-            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
-
+        {           
             bool simulate = chkSimulateSquare.Checked;
 
             Square squareTest = new Square()
             {
-                Start = new ENT_Sender_GRBL.Point(2, 2, simulate ? 5 : 0),
+                Start = new Point(2, 2, simulate ? 5 : 0),
                 Feed = int.Parse(txtFeed.Text),
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
                 Length = double.Parse(txtSquareSide.Text)
             };
 
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, squareTest);
+        }
+
+        private void GenerateShapeCode(short typeGeometric, Geometric shape)
+        {
+            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
             IGCodeGenerator shapeGenerator = gcodeFactory.Build((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square);
-            StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(squareTest);
+            StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(shape);
+
             txtGCode.Text = gCodeCmd.ToString();
             bufferCode = gCodeCmd;
         }
+
 
         private void BtnCutSquare_Click(object sender, EventArgs e)
         {
@@ -151,6 +157,11 @@ namespace CNC_Sender_GRBL_09
         }
 
         private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

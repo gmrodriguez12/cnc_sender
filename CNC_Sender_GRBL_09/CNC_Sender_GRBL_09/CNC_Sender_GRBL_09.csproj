@@ -89,5 +89,12 @@
       <Name>ENT_GRBL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imgs\circle.png" />
+    <Content Include="Imgs\line.png" />
+    <Content Include="Imgs\rectangle.png" />
+    <Content Include="Imgs\square.png" />
+    <Content Include="Imgs\triangle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
