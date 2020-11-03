@@ -730,12 +730,12 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 92);
+            this.label9.Location = new System.Drawing.Point(23, 92);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.Size = new System.Drawing.Size(41, 13);
             this.label9.TabIndex = 31;
-            this.label9.Text = "Altura";
+            this.label9.Text = "Lado X";
             // 
             // txtTriangleWidth
             // 
@@ -743,17 +743,17 @@
             this.txtTriangleWidth.Margin = new System.Windows.Forms.Padding(2);
             this.txtTriangleWidth.Name = "txtTriangleWidth";
             this.txtTriangleWidth.Size = new System.Drawing.Size(56, 20);
-            this.txtTriangleWidth.TabIndex = 30;
+            this.txtTriangleWidth.TabIndex = 42;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(32, 65);
+            this.label10.Location = new System.Drawing.Point(23, 65);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 29;
-            this.label10.Text = "Largo";
+            this.label10.Text = "Lado Y";
             // 
             // txtTriangleHeight
             // 
@@ -761,7 +761,7 @@
             this.txtTriangleHeight.Margin = new System.Windows.Forms.Padding(2);
             this.txtTriangleHeight.Name = "txtTriangleHeight";
             this.txtTriangleHeight.Size = new System.Drawing.Size(56, 20);
-            this.txtTriangleHeight.TabIndex = 28;
+            this.txtTriangleHeight.TabIndex = 41;
             // 
             // btnGenCodeTriangle
             // 
