@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtStartSquare = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSquareSide = new System.Windows.Forms.TextBox();
             this.btnGenerateSquare = new System.Windows.Forms.Button();
@@ -58,53 +61,50 @@
             this.btnXleft = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.txtStartRectangle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnGenCodeRectangle = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtLineFinish = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtStartLine = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtCenterCircle = new System.Windows.Forms.TextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtRadius = new System.Windows.Forms.TextBox();
             this.btnGenCircleCode = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtTriangleStart = new System.Windows.Forms.TextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTriangleWidth = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
             this.btnGenCodeTriangle = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtStartLine = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtLineFinish = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtStartRectangle = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtStartSquare = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtCenterCircle = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtTriangleStart = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -124,7 +124,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cuadrado";
             this.groupBox1.UseCompatibleTextRendering = true;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 92);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 13);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Inicio (x,y,z)";
+            // 
+            // txtStartSquare
+            // 
+            this.txtStartSquare.Location = new System.Drawing.Point(72, 89);
+            this.txtStartSquare.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStartSquare.Name = "txtStartSquare";
+            this.txtStartSquare.Size = new System.Drawing.Size(56, 20);
+            this.txtStartSquare.TabIndex = 38;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(144, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(174, 157);
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -146,7 +172,7 @@
             // 
             // btnGenerateSquare
             // 
-            this.btnGenerateSquare.Location = new System.Drawing.Point(10, 147);
+            this.btnGenerateSquare.Location = new System.Drawing.Point(11, 147);
             this.btnGenerateSquare.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerateSquare.Name = "btnGenerateSquare";
             this.btnGenerateSquare.Size = new System.Drawing.Size(117, 23);
@@ -324,7 +350,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(150, 159);
+            this.groupBox3.Size = new System.Drawing.Size(149, 159);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Movimiento Ejes";
@@ -444,6 +470,33 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Rectángulo";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(17, 232);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 13);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Inicio (x,y,z)";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(14, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(313, 151);
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            // 
+            // txtStartRectangle
+            // 
+            this.txtStartRectangle.Location = new System.Drawing.Point(83, 229);
+            this.txtStartRectangle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStartRectangle.Name = "txtStartRectangle";
+            this.txtStartRectangle.Size = new System.Drawing.Size(56, 20);
+            this.txtStartRectangle.TabIndex = 36;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -498,13 +551,67 @@
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.txtStartLine);
             this.groupBox6.Controls.Add(this.button1);
-            this.groupBox6.Location = new System.Drawing.Point(732, 180);
+            this.groupBox6.Location = new System.Drawing.Point(732, 179);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(307, 186);
+            this.groupBox6.Size = new System.Drawing.Size(307, 188);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Línea Recta";
-            this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(142, 34);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(149, 133);
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 114);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 13);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Fin (x,y,z)";
+            // 
+            // txtLineFinish
+            // 
+            this.txtLineFinish.Location = new System.Drawing.Point(76, 111);
+            this.txtLineFinish.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLineFinish.Name = "txtLineFinish";
+            this.txtLineFinish.Size = new System.Drawing.Size(56, 20);
+            this.txtLineFinish.TabIndex = 32;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 86);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 13);
+            this.label11.TabIndex = 31;
+            this.label11.Text = "Inicio (x,y,z)";
+            // 
+            // txtStartLine
+            // 
+            this.txtStartLine.Location = new System.Drawing.Point(76, 83);
+            this.txtStartLine.Margin = new System.Windows.Forms.Padding(2);
+            this.txtStartLine.Name = "txtStartLine";
+            this.txtStartLine.Size = new System.Drawing.Size(56, 20);
+            this.txtStartLine.TabIndex = 30;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 144);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Generar GCode";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -520,6 +627,33 @@
             this.groupBox7.TabIndex = 33;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Círculo";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(5, 89);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(68, 13);
+            this.label15.TabIndex = 39;
+            this.label15.Text = "Centro (x,y,z)";
+            // 
+            // txtCenterCircle
+            // 
+            this.txtCenterCircle.Location = new System.Drawing.Point(76, 85);
+            this.txtCenterCircle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCenterCircle.Name = "txtCenterCircle";
+            this.txtCenterCircle.Size = new System.Drawing.Size(56, 20);
+            this.txtCenterCircle.TabIndex = 38;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(145, 16);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(146, 144);
+            this.pictureBox5.TabIndex = 37;
+            this.pictureBox5.TabStop = false;
             // 
             // label5
             // 
@@ -559,12 +693,39 @@
             this.groupBox8.Controls.Add(this.label10);
             this.groupBox8.Controls.Add(this.txtTriangleHeight);
             this.groupBox8.Controls.Add(this.btnGenCodeTriangle);
-            this.groupBox8.Location = new System.Drawing.Point(543, 15);
+            this.groupBox8.Location = new System.Drawing.Point(544, 15);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(402, 159);
             this.groupBox8.TabIndex = 34;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Triángulo Rectángulo";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(4, 36);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 13);
+            this.label16.TabIndex = 41;
+            this.label16.Text = "Inicio (x,y,z)";
+            // 
+            // txtTriangleStart
+            // 
+            this.txtTriangleStart.Location = new System.Drawing.Point(70, 33);
+            this.txtTriangleStart.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTriangleStart.Name = "txtTriangleStart";
+            this.txtTriangleStart.Size = new System.Drawing.Size(56, 20);
+            this.txtTriangleStart.TabIndex = 40;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(140, 13);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(248, 132);
+            this.pictureBox4.TabIndex = 36;
+            this.pictureBox4.TabStop = false;
             // 
             // label9
             // 
@@ -611,169 +772,7 @@
             this.btnGenCodeTriangle.TabIndex = 27;
             this.btnGenCodeTriangle.Text = "Generar GCode";
             this.btnGenCodeTriangle.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 128);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Generar GCode";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 70);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 13);
-            this.label11.TabIndex = 31;
-            this.label11.Text = "Inicio (x,y,z)";
-            // 
-            // txtStartLine
-            // 
-            this.txtStartLine.Location = new System.Drawing.Point(76, 67);
-            this.txtStartLine.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStartLine.Name = "txtStartLine";
-            this.txtStartLine.Size = new System.Drawing.Size(56, 20);
-            this.txtStartLine.TabIndex = 30;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 98);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 13);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Fin (x,y,z)";
-            // 
-            // txtLineFinish
-            // 
-            this.txtLineFinish.Location = new System.Drawing.Point(76, 95);
-            this.txtLineFinish.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLineFinish.Name = "txtLineFinish";
-            this.txtLineFinish.Size = new System.Drawing.Size(56, 20);
-            this.txtLineFinish.TabIndex = 32;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(144, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(174, 157);
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 232);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 13);
-            this.label13.TabIndex = 37;
-            this.label13.Text = "Inicio (x,y,z)";
-            // 
-            // txtStartRectangle
-            // 
-            this.txtStartRectangle.Location = new System.Drawing.Point(83, 229);
-            this.txtStartRectangle.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStartRectangle.Name = "txtStartRectangle";
-            this.txtStartRectangle.Size = new System.Drawing.Size(56, 20);
-            this.txtStartRectangle.TabIndex = 36;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(14, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(313, 151);
-            this.pictureBox2.TabIndex = 35;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 92);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 13);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Inicio (x,y,z)";
-            // 
-            // txtStartSquare
-            // 
-            this.txtStartSquare.Location = new System.Drawing.Point(72, 89);
-            this.txtStartSquare.Margin = new System.Windows.Forms.Padding(2);
-            this.txtStartSquare.Name = "txtStartSquare";
-            this.txtStartSquare.Size = new System.Drawing.Size(56, 20);
-            this.txtStartSquare.TabIndex = 38;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(142, 18);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(149, 133);
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(140, 13);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(248, 132);
-            this.pictureBox4.TabIndex = 36;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(145, 16);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(146, 144);
-            this.pictureBox5.TabIndex = 37;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(5, 89);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(68, 13);
-            this.label15.TabIndex = 39;
-            this.label15.Text = "Centro (x,y,z)";
-            // 
-            // txtCenterCircle
-            // 
-            this.txtCenterCircle.Location = new System.Drawing.Point(76, 85);
-            this.txtCenterCircle.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCenterCircle.Name = "txtCenterCircle";
-            this.txtCenterCircle.Size = new System.Drawing.Size(56, 20);
-            this.txtCenterCircle.TabIndex = 38;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 36);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 13);
-            this.label16.TabIndex = 41;
-            this.label16.Text = "Inicio (x,y,z)";
-            // 
-            // txtTriangleStart
-            // 
-            this.txtTriangleStart.Location = new System.Drawing.Point(70, 33);
-            this.txtTriangleStart.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTriangleStart.Name = "txtTriangleStart";
-            this.txtTriangleStart.Size = new System.Drawing.Size(56, 20);
-            this.txtTriangleStart.TabIndex = 40;
+            this.btnGenCodeTriangle.Click += new System.EventHandler(this.btnGenCodeTriangle_Click);
             // 
             // Form1
             // 
@@ -794,6 +793,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -802,17 +802,16 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }

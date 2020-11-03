@@ -74,28 +74,28 @@ namespace CNC_Sender_GRBL_09
         private void BtnGenerateSquare_Click(object sender, EventArgs e)
         {           
             bool simulate = chkSimulateSquare.Checked;
+            string[] points = txtTriangleStart.Text.Split(',');
 
-            Square squareTest = new Square()
+            Square square = new Square()
             {
-                Start = new Point(2, 2, simulate ? 5 : 0),
+                Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
                 Feed = int.Parse(txtFeed.Text),
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
                 Length = double.Parse(txtSquareSide.Text)
             };
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, squareTest);
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square);
         }
 
         private void GenerateShapeCode(short typeGeometric, Geometric shape)
         {
             GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
-            IGCodeGenerator shapeGenerator = gcodeFactory.Build((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square);
+            IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
             StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(shape);
 
             txtGCode.Text = gCodeCmd.ToString();
             bufferCode = gCodeCmd;
         }
-
 
         private void BtnCutSquare_Click(object sender, EventArgs e)
         {
@@ -156,14 +156,21 @@ namespace CNC_Sender_GRBL_09
             SerialPortManager.ExecuteCommands(sb);
         }
 
-        private void groupBox6_Enter(object sender, EventArgs e)
+        private void btnGenCodeTriangle_Click(object sender, EventArgs e)
         {
+            bool simulate = chkSimulateSquare.Checked;
+            string[] points = txtTriangleStart.Text.Split(',');
 
-        }
+            TriangleRectangle triangle = new TriangleRectangle()
+            {
+                Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
+                Feed = int.Parse(txtFeed.Text),
+                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
+                Length = double.Parse(txtTriangleWidth.Text),
+                Heigth = double.Parse(txtTriangleHeight.Text)
+            };
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.TriangleRectangle, triangle);
         }
     }
 }

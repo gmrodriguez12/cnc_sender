@@ -40,14 +40,5 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
             sb.AppendLine(ReturnToHome(square.SafetyHeightZ));
             return sb;
         }
- 
-        
-        /*
-            G0 X2 Y2 //Origen
-            G1 X2 Y4 F150
-            G1 X4 Y4 F150
-            G1 X4 Y2 F150
-            G1 X2 Y2 F150
-        */
     }
 }
