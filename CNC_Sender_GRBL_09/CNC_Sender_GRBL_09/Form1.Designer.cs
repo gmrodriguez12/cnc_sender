@@ -86,12 +86,12 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtTriangleStart = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTriangleWidth = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
             this.btnGenCodeTriangle = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -671,7 +671,7 @@
             this.txtRadius.Margin = new System.Windows.Forms.Padding(2);
             this.txtRadius.Name = "txtRadius";
             this.txtRadius.Size = new System.Drawing.Size(56, 20);
-            this.txtRadius.TabIndex = 23;
+            this.txtRadius.TabIndex = 39;
             // 
             // btnGenCircleCode
             // 
@@ -679,15 +679,16 @@
             this.btnGenCircleCode.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenCircleCode.Name = "btnGenCircleCode";
             this.btnGenCircleCode.Size = new System.Drawing.Size(124, 23);
-            this.btnGenCircleCode.TabIndex = 22;
+            this.btnGenCircleCode.TabIndex = 40;
             this.btnGenCircleCode.Text = "Generar GCode";
             this.btnGenCircleCode.UseVisualStyleBackColor = true;
+            this.btnGenCircleCode.Click += new System.EventHandler(this.btnGenCircleCode_Click);
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.pictureBox4);
             this.groupBox8.Controls.Add(this.label16);
             this.groupBox8.Controls.Add(this.txtTriangleStart);
-            this.groupBox8.Controls.Add(this.pictureBox4);
             this.groupBox8.Controls.Add(this.label9);
             this.groupBox8.Controls.Add(this.txtTriangleWidth);
             this.groupBox8.Controls.Add(this.label10);
@@ -695,7 +696,7 @@
             this.groupBox8.Controls.Add(this.btnGenCodeTriangle);
             this.groupBox8.Location = new System.Drawing.Point(544, 15);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(402, 159);
+            this.groupBox8.Size = new System.Drawing.Size(433, 159);
             this.groupBox8.TabIndex = 34;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Triángulo Rectángulo";
@@ -703,7 +704,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 36);
+            this.label16.Location = new System.Drawing.Point(4, 40);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(62, 13);
@@ -712,25 +713,16 @@
             // 
             // txtTriangleStart
             // 
-            this.txtTriangleStart.Location = new System.Drawing.Point(70, 33);
+            this.txtTriangleStart.Location = new System.Drawing.Point(70, 37);
             this.txtTriangleStart.Margin = new System.Windows.Forms.Padding(2);
             this.txtTriangleStart.Name = "txtTriangleStart";
             this.txtTriangleStart.Size = new System.Drawing.Size(56, 20);
             this.txtTriangleStart.TabIndex = 40;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(140, 13);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(248, 132);
-            this.pictureBox4.TabIndex = 36;
-            this.pictureBox4.TabStop = false;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 92);
+            this.label9.Location = new System.Drawing.Point(23, 96);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 13);
@@ -739,7 +731,7 @@
             // 
             // txtTriangleWidth
             // 
-            this.txtTriangleWidth.Location = new System.Drawing.Point(70, 88);
+            this.txtTriangleWidth.Location = new System.Drawing.Point(70, 92);
             this.txtTriangleWidth.Margin = new System.Windows.Forms.Padding(2);
             this.txtTriangleWidth.Name = "txtTriangleWidth";
             this.txtTriangleWidth.Size = new System.Drawing.Size(56, 20);
@@ -748,7 +740,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 65);
+            this.label10.Location = new System.Drawing.Point(23, 69);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 13);
@@ -757,7 +749,7 @@
             // 
             // txtTriangleHeight
             // 
-            this.txtTriangleHeight.Location = new System.Drawing.Point(70, 61);
+            this.txtTriangleHeight.Location = new System.Drawing.Point(70, 65);
             this.txtTriangleHeight.Margin = new System.Windows.Forms.Padding(2);
             this.txtTriangleHeight.Name = "txtTriangleHeight";
             this.txtTriangleHeight.Size = new System.Drawing.Size(56, 20);
@@ -765,7 +757,7 @@
             // 
             // btnGenCodeTriangle
             // 
-            this.btnGenCodeTriangle.Location = new System.Drawing.Point(7, 121);
+            this.btnGenCodeTriangle.Location = new System.Drawing.Point(7, 125);
             this.btnGenCodeTriangle.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenCodeTriangle.Name = "btnGenCodeTriangle";
             this.btnGenCodeTriangle.Size = new System.Drawing.Size(119, 23);
@@ -773,6 +765,15 @@
             this.btnGenCodeTriangle.Text = "Generar GCode";
             this.btnGenCodeTriangle.UseVisualStyleBackColor = true;
             this.btnGenCodeTriangle.Click += new System.EventHandler(this.btnGenCodeTriangle_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(131, 14);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(286, 132);
+            this.pictureBox4.TabIndex = 43;
+            this.pictureBox4.TabStop = false;
             // 
             // Form1
             // 
@@ -878,9 +879,9 @@
         private System.Windows.Forms.TextBox txtCenterCircle;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtTriangleStart;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 

@@ -172,5 +172,21 @@ namespace CNC_Sender_GRBL_09
 
             GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.TriangleRectangle, triangle);
         }
+
+        private void btnGenCircleCode_Click(object sender, EventArgs e)
+        {
+            bool simulate = chkSimulateSquare.Checked;
+            string[] points = txtCenterCircle.Text.Split(',');
+
+            Circle circle = new Circle()
+            {
+                Feed = int.Parse(txtFeed.Text),
+                Center = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
+                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
+                Radio = double.Parse(txtRadius.Text)
+            };
+
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle);
+        }
     }
 }

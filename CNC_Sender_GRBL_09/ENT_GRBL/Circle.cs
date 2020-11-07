@@ -9,16 +9,20 @@ namespace ENT_Sender_GRBL
 {
     public class Circle : Geometric
     {
+        //public Circle()
+        //{
 
-        public Circle(double cX, double cY, double r, double feed)
-        {
-            if (!ValidateParameters(cX, cY, r))
-                throw new CircleException(cX, cY, r);
+        //}
 
-            Feed = feed;
-            Center = new Point(cX, cY, 0);
-            Radio = r;
-        }
+        //public Circle(double cX, double cY, double r, double feed)
+        //{
+        //    if (!ValidateParameters(cX, cY, r))
+        //        throw new CircleException(cX, cY, r);
+
+        //    Feed = feed;
+        //    Center = new Point(cX, cY, 0);
+        //    Radio = r;
+        //}
 
         public Point Center { get; set; }
         public double Radio { get; set; }
