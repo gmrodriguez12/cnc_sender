@@ -176,17 +176,51 @@ namespace CNC_Sender_GRBL_09
         private void btnGenCircleCode_Click(object sender, EventArgs e)
         {
             bool simulate = chkSimulateSquare.Checked;
-            string[] points = txtCenterCircle.Text.Split(',');
+            string[] start = txtCenterCircle.Text.Split(',');
 
             Circle circle = new Circle()
             {
                 Feed = int.Parse(txtFeed.Text),
-                Center = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
+                Center = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
                 Radio = double.Parse(txtRadius.Text)
             };
 
             GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle);
+        }
+
+        private void btnGenLineCode_Click(object sender, EventArgs e)
+        {
+            bool simulate = chkSimulateSquare.Checked;
+            string[] start = txtStartLine.Text.Split(',');
+            string[] finish = txtFinishLine.Text.Split(',');
+
+            Line line = new Line()
+            {
+                Feed = int.Parse(txtFeed.Text),
+                Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
+                Finish = new Point(double.Parse(finish[0]), double.Parse(finish[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(finish[2])),
+                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
+            };
+
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Line, line);
+        }
+
+        private void btnGenCodeRectangle_Click(object sender, EventArgs e)
+        {
+            bool simulate = chkSimulateSquare.Checked;
+            string[] start = txtStartRectangle.Text.Split(',');
+
+            Rectangle rectangle = new Rectangle()
+            {
+                Feed = int.Parse(txtFeed.Text),
+                Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
+                Width = double.Parse(txtWidthRectangle.Text),
+                Height = double.Parse(txtHeightRectangle.Text),
+                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
+            };
+
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle);
         }
     }
 }

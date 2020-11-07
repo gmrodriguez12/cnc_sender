@@ -9,13 +9,13 @@ namespace ENT_Sender_GRBL
     public class Rectangle : Geometric
     {
         public double Width { get; set; }
-        public double Length { get; set; }
+        public double Height { get; set; }
 
         public Point A
         {
             get
             {
-                return new Point(Start.X, Start.Y + Length, Start.Z);
+                return new Point(Start.X, Start.Y + Height, Start.Z);
             }
         }
 
@@ -23,7 +23,7 @@ namespace ENT_Sender_GRBL
         {
             get
             {
-                return new Point(Start.X + Width, Start.Y + Length, Start.Z);
+                return new Point(Start.X + Width, Start.Y + Height, Start.Z);
             }
         }
 

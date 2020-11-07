@@ -65,17 +65,17 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtStartRectangle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtHeightRectangle = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtWidthRectangle = new System.Windows.Forms.TextBox();
             this.btnGenCodeRectangle = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtLineFinish = new System.Windows.Forms.TextBox();
+            this.txtFinishLine = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtStartLine = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGenLineCode = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtCenterCircle = new System.Windows.Forms.TextBox();
@@ -84,6 +84,7 @@
             this.txtRadius = new System.Windows.Forms.TextBox();
             this.btnGenCircleCode = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtTriangleStart = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -91,7 +92,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
             this.btnGenCodeTriangle = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -459,13 +459,13 @@
             this.groupBox5.Controls.Add(this.pictureBox2);
             this.groupBox5.Controls.Add(this.txtStartRectangle);
             this.groupBox5.Controls.Add(this.label8);
-            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.txtHeightRectangle);
             this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.txtWidthRectangle);
             this.groupBox5.Controls.Add(this.btnGenCodeRectangle);
             this.groupBox5.Location = new System.Drawing.Point(388, 372);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(339, 263);
+            this.groupBox5.Size = new System.Drawing.Size(339, 233);
             this.groupBox5.TabIndex = 31;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Rectángulo";
@@ -473,7 +473,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 232);
+            this.label13.Location = new System.Drawing.Point(17, 204);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 13);
@@ -483,74 +483,75 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(14, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(41, 19);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(313, 151);
+            this.pictureBox2.Size = new System.Drawing.Size(283, 124);
             this.pictureBox2.TabIndex = 35;
             this.pictureBox2.TabStop = false;
             // 
             // txtStartRectangle
             // 
-            this.txtStartRectangle.Location = new System.Drawing.Point(83, 229);
+            this.txtStartRectangle.Location = new System.Drawing.Point(83, 201);
             this.txtStartRectangle.Margin = new System.Windows.Forms.Padding(2);
             this.txtStartRectangle.Name = "txtStartRectangle";
             this.txtStartRectangle.Size = new System.Drawing.Size(56, 20);
-            this.txtStartRectangle.TabIndex = 36;
+            this.txtStartRectangle.TabIndex = 25;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 209);
+            this.label8.Location = new System.Drawing.Point(38, 181);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 13);
+            this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 26;
-            this.label8.Text = "Ancho";
+            this.label8.Text = "Lado Y";
             // 
-            // textBox3
+            // txtHeightRectangle
             // 
-            this.textBox3.Location = new System.Drawing.Point(83, 205);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(56, 20);
-            this.textBox3.TabIndex = 25;
+            this.txtHeightRectangle.Location = new System.Drawing.Point(83, 177);
+            this.txtHeightRectangle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHeightRectangle.Name = "txtHeightRectangle";
+            this.txtHeightRectangle.Size = new System.Drawing.Size(56, 20);
+            this.txtHeightRectangle.TabIndex = 24;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 182);
+            this.label7.Location = new System.Drawing.Point(38, 153);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Largo";
+            this.label7.Text = "Lado X";
             // 
-            // textBox2
+            // txtWidthRectangle
             // 
-            this.textBox2.Location = new System.Drawing.Point(83, 178);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(56, 20);
-            this.textBox2.TabIndex = 23;
+            this.txtWidthRectangle.Location = new System.Drawing.Point(83, 150);
+            this.txtWidthRectangle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtWidthRectangle.Name = "txtWidthRectangle";
+            this.txtWidthRectangle.Size = new System.Drawing.Size(56, 20);
+            this.txtWidthRectangle.TabIndex = 23;
             // 
             // btnGenCodeRectangle
             // 
-            this.btnGenCodeRectangle.Location = new System.Drawing.Point(193, 227);
+            this.btnGenCodeRectangle.Location = new System.Drawing.Point(163, 199);
             this.btnGenCodeRectangle.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenCodeRectangle.Name = "btnGenCodeRectangle";
             this.btnGenCodeRectangle.Size = new System.Drawing.Size(134, 23);
-            this.btnGenCodeRectangle.TabIndex = 22;
+            this.btnGenCodeRectangle.TabIndex = 26;
             this.btnGenCodeRectangle.Text = "Generar GCode";
             this.btnGenCodeRectangle.UseVisualStyleBackColor = true;
+            this.btnGenCodeRectangle.Click += new System.EventHandler(this.btnGenCodeRectangle_Click);
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.pictureBox3);
             this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Controls.Add(this.txtLineFinish);
+            this.groupBox6.Controls.Add(this.txtFinishLine);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.txtStartLine);
-            this.groupBox6.Controls.Add(this.button1);
+            this.groupBox6.Controls.Add(this.btnGenLineCode);
             this.groupBox6.Location = new System.Drawing.Point(732, 179);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(307, 188);
@@ -577,13 +578,13 @@
             this.label12.TabIndex = 33;
             this.label12.Text = "Fin (x,y,z)";
             // 
-            // txtLineFinish
+            // txtFinishLine
             // 
-            this.txtLineFinish.Location = new System.Drawing.Point(76, 111);
-            this.txtLineFinish.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLineFinish.Name = "txtLineFinish";
-            this.txtLineFinish.Size = new System.Drawing.Size(56, 20);
-            this.txtLineFinish.TabIndex = 32;
+            this.txtFinishLine.Location = new System.Drawing.Point(76, 111);
+            this.txtFinishLine.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFinishLine.Name = "txtFinishLine";
+            this.txtFinishLine.Size = new System.Drawing.Size(56, 20);
+            this.txtFinishLine.TabIndex = 31;
             // 
             // label11
             // 
@@ -603,15 +604,16 @@
             this.txtStartLine.Size = new System.Drawing.Size(56, 20);
             this.txtStartLine.TabIndex = 30;
             // 
-            // button1
+            // btnGenLineCode
             // 
-            this.button1.Location = new System.Drawing.Point(13, 144);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Generar GCode";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGenLineCode.Location = new System.Drawing.Point(13, 144);
+            this.btnGenLineCode.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGenLineCode.Name = "btnGenLineCode";
+            this.btnGenLineCode.Size = new System.Drawing.Size(119, 23);
+            this.btnGenLineCode.TabIndex = 32;
+            this.btnGenLineCode.Text = "Generar GCode";
+            this.btnGenLineCode.UseVisualStyleBackColor = true;
+            this.btnGenLineCode.Click += new System.EventHandler(this.btnGenLineCode_Click);
             // 
             // groupBox7
             // 
@@ -701,6 +703,15 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Triángulo Rectángulo";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(131, 14);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(286, 132);
+            this.pictureBox4.TabIndex = 43;
+            this.pictureBox4.TabStop = false;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -765,15 +776,6 @@
             this.btnGenCodeTriangle.Text = "Generar GCode";
             this.btnGenCodeTriangle.UseVisualStyleBackColor = true;
             this.btnGenCodeTriangle.Click += new System.EventHandler(this.btnGenCodeTriangle_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(131, 14);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(286, 132);
-            this.pictureBox4.TabIndex = 43;
-            this.pictureBox4.TabStop = false;
             // 
             // Form1
             // 
@@ -855,9 +857,9 @@
         private System.Windows.Forms.Button btnGenCircleCode;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtHeightRectangle;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtWidthRectangle;
         private System.Windows.Forms.Button btnGenCodeRectangle;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtTriangleWidth;
@@ -865,10 +867,10 @@
         private System.Windows.Forms.TextBox txtTriangleHeight;
         private System.Windows.Forms.Button btnGenCodeTriangle;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtLineFinish;
+        private System.Windows.Forms.TextBox txtFinishLine;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtStartLine;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGenLineCode;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtStartSquare;
         private System.Windows.Forms.PictureBox pictureBox1;
