@@ -44,6 +44,8 @@
     <Compile Include="GCodeGenerator\GCodeShapeFactory.cs" />
     <Compile Include="GCodeGenerator\IGCodeGenerator.cs" />
     <Compile Include="GCodeGenerator\IGCodeSimpleMovements.cs" />
+    <Compile Include="GCodeGenerator\MachineCalibration\AxisCalibration.cs" />
+    <Compile Include="GCodeGenerator\SettingsGCodeGenerator\GCodeSetting.cs" />
     <Compile Include="GCodeGenerator\ShapeGCodeGenerator\GCodeCircle.cs" />
     <Compile Include="GCodeGenerator\ShapeGCodeGenerator\GCodeLines.cs" />
     <Compile Include="GCodeGenerator\ShapeGCodeGenerator\GCodeRectangle.cs" />
@@ -60,5 +62,6 @@
       <Name>ENT_GRBL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
