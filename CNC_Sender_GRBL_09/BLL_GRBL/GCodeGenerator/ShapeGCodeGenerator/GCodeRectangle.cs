@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL_GRBL.DomainValidation;
 using ENT_Sender_GRBL;
 
 namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
@@ -18,6 +19,11 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
         public override StringBuilder GenerateSimulatorGCode(Geometric shape)
         {
             Rectangle rectangle = (Rectangle)shape;
+
+            var validation = new RectangleIsValid().Validate(rectangle);
+            if (!validation.IsValid)
+                throw new Exception(validation.Message);
+
             return GenerateGcode(rectangle, true);
         }
 

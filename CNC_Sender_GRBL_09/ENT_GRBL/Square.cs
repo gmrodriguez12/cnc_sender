@@ -8,11 +8,11 @@ namespace ENT_Sender_GRBL
 {
     public class Square : Geometric
     {
-        public double Length { get; set; }
+        public double Side { get; set; }
 
         public Point A { get
             {
-                return new Point(Start.X, Start.Y + Length, Start.Z);
+                return new Point(Start.X, Start.Y + Side, Start.Z);
             }
         }
 
@@ -20,7 +20,7 @@ namespace ENT_Sender_GRBL
         {
             get
             {
-                return new Point(Start.X + Length, Start.Y + Length, Start.Z);
+                return new Point(Start.X + Side, Start.Y + Side, Start.Z);
             }
         }
 
@@ -28,7 +28,7 @@ namespace ENT_Sender_GRBL
         {
             get
             {
-                return new Point(Start.X + Length, Start.Y, Start.Z);
+                return new Point(Start.X + Side, Start.Y, Start.Z);
             }
         }
         

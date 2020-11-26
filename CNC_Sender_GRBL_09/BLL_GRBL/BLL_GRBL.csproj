@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DomainValidation.1.0.0\lib\net453\DomainValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GCodeValidation\HeightValidation.cs" />
+    <Compile Include="GCodeValidation\RectangleHeightIsValid.cs" />
+    <Compile Include="GCodeValidation\RectangleIsValid.cs" />
     <Compile Include="GCodeGenerator\GCodeShapeFactory.cs" />
     <Compile Include="GCodeGenerator\IGCodeGenerator.cs" />
     <Compile Include="GCodeGenerator\IGCodeSimpleMovements.cs" />
@@ -53,6 +59,8 @@
     <Compile Include="GCodeGenerator\ShapeGCodeGenerator\GCodeTriangleRectangle.cs" />
     <Compile Include="GCodeGenerator\SimpleMovements\GCodeHome.cs" />
     <Compile Include="GCodeGenerator\SimpleMovements\GCodeSimpleMovements.cs" />
+    <Compile Include="GCodeValidation\RectangleWidthIsValid.cs" />
+    <Compile Include="GCodeValidation\WidthValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerialPortManager\SerialPortManager.cs" />
   </ItemGroup>
@@ -63,5 +71,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

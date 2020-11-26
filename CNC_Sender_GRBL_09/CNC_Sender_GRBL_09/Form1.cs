@@ -1,4 +1,5 @@
-﻿using BLL_Sender_GRBL.GCodeGenerator;
+﻿using BLL_GRBL.DomainValidation;
+using BLL_Sender_GRBL.GCodeGenerator;
 using BLL_Sender_GRBL.GCodeGenerator.SimpleMovements;
 using BLL_Sender_GRBL.SerialPortManager;
 using ENT_Sender_GRBL;
@@ -81,7 +82,7 @@ namespace CNC_Sender_GRBL_09
                 Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
                 Feed = int.Parse(txtFeed.Text),
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
-                Length = double.Parse(txtSquareSide.Text)
+                Side = double.Parse(txtSquareSide.Text)
             };
 
             GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square);
@@ -92,6 +93,8 @@ namespace CNC_Sender_GRBL_09
             GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
             IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
             StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(shape);
+
+            //TODO Review this method beacuse only generate simulator code
 
             txtGCode.Text = gCodeCmd.ToString();
             bufferCode = gCodeCmd;
@@ -166,9 +169,11 @@ namespace CNC_Sender_GRBL_09
                 Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
                 Feed = int.Parse(txtFeed.Text),
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
-                Length = double.Parse(txtTriangleWidth.Text),
-                Heigth = double.Parse(txtTriangleHeight.Text)
+                Lenght = double.Parse(txtTriangleWidth.Text),
+                Height = double.Parse(txtTriangleHeight.Text)
             };
+
+            //if triangle is valid
 
             GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.TriangleRectangle, triangle);
         }
@@ -219,7 +224,7 @@ namespace CNC_Sender_GRBL_09
                 Height = double.Parse(txtHeightRectangle.Text),
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
             };
-
+           
             GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle);
         }
     }

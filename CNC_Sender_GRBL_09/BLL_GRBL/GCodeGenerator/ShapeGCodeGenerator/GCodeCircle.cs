@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BLL_Sender_GRBL.GCodeGenerator;
+﻿using System.Text;
 using ENT_Sender_GRBL;
 
 namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
