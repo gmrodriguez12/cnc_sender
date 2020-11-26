@@ -85,16 +85,14 @@ namespace CNC_Sender_GRBL_09
                 Side = double.Parse(txtSquareSide.Text)
             };
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square);
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square, simulate);
         }
 
-        private void GenerateShapeCode(short typeGeometric, Geometric shape)
+        private void GenerateShapeCode(short typeGeometric, Geometric shape, bool simulate)
         {
             GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
             IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
-            StringBuilder gCodeCmd = shapeGenerator.GenerateSimulatorGCode(shape);
-
-            //TODO Review this method beacuse only generate simulator code
+            StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
 
             txtGCode.Text = gCodeCmd.ToString();
             bufferCode = gCodeCmd;
@@ -175,7 +173,7 @@ namespace CNC_Sender_GRBL_09
 
             //if triangle is valid
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.TriangleRectangle, triangle);
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.TriangleRectangle, triangle, simulate);
         }
 
         private void btnGenCircleCode_Click(object sender, EventArgs e)
@@ -191,7 +189,7 @@ namespace CNC_Sender_GRBL_09
                 Radio = double.Parse(txtRadius.Text)
             };
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle);
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle, simulate);
         }
 
         private void btnGenLineCode_Click(object sender, EventArgs e)
@@ -208,7 +206,7 @@ namespace CNC_Sender_GRBL_09
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
             };
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Line, line);
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Line, line, simulate);
         }
 
         private void btnGenCodeRectangle_Click(object sender, EventArgs e)
@@ -225,7 +223,7 @@ namespace CNC_Sender_GRBL_09
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
             };
            
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle);
+            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle, simulate);
         }
     }
 }

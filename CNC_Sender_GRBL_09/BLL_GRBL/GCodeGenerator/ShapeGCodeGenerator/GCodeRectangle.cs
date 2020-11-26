@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using BLL_GRBL.DomainValidation;
 using ENT_Sender_GRBL;
 
@@ -19,16 +16,15 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
         public override StringBuilder GenerateSimulatorGCode(Geometric shape)
         {
             Rectangle rectangle = (Rectangle)shape;
-
-            var validation = new RectangleIsValid().Validate(rectangle);
-            if (!validation.IsValid)
-                throw new Exception(validation.Message);
-
             return GenerateGcode(rectangle, true);
         }
 
         private StringBuilder GenerateGcode(Rectangle rectangle, bool isSimulator)
         {
+            var validation = new RectangleIsValid().Validate(rectangle);
+            if (!validation.IsValid)
+                throw new Exception(validation.Message);
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GMovement(rectangle.Start, "G0"));
 
@@ -46,14 +42,5 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
             sb.AppendLine(ReturnToHome(rectangle.SafetyHeightZ));
             return sb;
         }
-
-        /*
-            G0 X2 Y2
-            G1 X2 Y6 F150
-            G1 X4 Y6 F150
-            G1 X4 Y2 F150
-            G1 X2 Y2 F150
-            G0 X0 Y0
-         */
     }
 }

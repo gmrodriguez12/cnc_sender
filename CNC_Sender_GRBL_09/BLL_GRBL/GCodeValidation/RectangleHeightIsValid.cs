@@ -13,7 +13,7 @@ namespace BLL_GRBL.DomainValidation
     {
         public bool IsSatisfiedBy(Rectangle entity)
         {
-            return HeightValidation.HeghtIsValid(entity.Height, entity.Start.Y);
+            return HeightValidation.IsValid(entity.Height, entity.Start.Y);
         }
     }
 }
