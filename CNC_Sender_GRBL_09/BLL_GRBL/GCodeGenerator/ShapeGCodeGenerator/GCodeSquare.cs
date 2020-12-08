@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL_GRBL.GCodeValidation.Square;
+using DomainValidation.Validation;
 using ENT_Sender_GRBL;
 
 namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
@@ -23,6 +25,11 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
 
         private StringBuilder GenerateGcode(Square square, bool isSimulator)
         {
+            var validation = new SquareIsValid().Validate(square);
+
+            if (!validation.IsValid)
+                throw new Exception(validation.Erros.First().Message);
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GMovement(square.Start, "G0"));
 

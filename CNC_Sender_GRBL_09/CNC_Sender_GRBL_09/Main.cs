@@ -73,19 +73,26 @@ namespace CNC_Sender_GRBL_09
         }
 
         private void BtnGenerateSquare_Click(object sender, EventArgs e)
-        {           
-            bool simulate = chkSimulateSquare.Checked;
-            string[] points = txtTriangleStart.Text.Split(',');
-
-            Square square = new Square()
+        {
+            try
             {
-                Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
-                Feed = int.Parse(txtFeed.Text),
-                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
-                Side = double.Parse(txtSquareSide.Text)
-            };
+                bool simulate = chkSimulateSquare.Checked;
+                string[] points = txtStartSquare.Text.Split(',');
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square, simulate);
+                Square square = new Square()
+                {
+                    Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
+                    Feed = int.Parse(txtFeed.Text),
+                    SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
+                    Side = double.Parse(txtSquareSide.Text)
+                };
+
+                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square, simulate);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void GenerateShapeCode(short typeGeometric, Geometric shape, bool simulate)
