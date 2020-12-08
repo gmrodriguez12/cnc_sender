@@ -2,11 +2,11 @@
 using DomainValidation.Interfaces.Specification;
 using ENT_Sender_GRBL;
 
-namespace BLL_GRBL.DomainValidation
+namespace BLL_GRBL.DomainValidation.Rectangle
 {
-    public class RectangleHeightIsValid : ISpecification<Rectangle>
+    public class RectangleHeightIsValid : ISpecification<ENT_Sender_GRBL.Rectangle>
     {
-        public bool IsSatisfiedBy(Rectangle entity)
+        public bool IsSatisfiedBy(ENT_Sender_GRBL.Rectangle entity)
         {
             return HeightValidation.IsValid(entity.Height, entity.Start.Y);
         }
