@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using BLL_GRBL.DomainValidation;
 using ENT_Sender_GRBL;
@@ -22,8 +23,9 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
         private StringBuilder GenerateGcode(Rectangle rectangle, bool isSimulator)
         {
             var validation = new RectangleIsValid().Validate(rectangle);
+
             if (!validation.IsValid)
-                throw new Exception(validation.Message);
+                throw new Exception(string.Join(",", validation.Erros.Select(w => w.Message)));
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GMovement(rectangle.Start, "G0"));

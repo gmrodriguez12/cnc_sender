@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace CNC_Sender_GRBL_09
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         const int SAFE_VERTICAL_HEIGHT_CM = 10;
         StringBuilder bufferCode = new StringBuilder();
         GCodeSimpleMovements simpleMovements = null;
         double feed;
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             LoadSerialPorts();
@@ -211,19 +211,26 @@ namespace CNC_Sender_GRBL_09
 
         private void btnGenCodeRectangle_Click(object sender, EventArgs e)
         {
-            bool simulate = chkSimulateSquare.Checked;
-            string[] start = txtStartRectangle.Text.Split(',');
-
-            Rectangle rectangle = new Rectangle()
+            try
             {
-                Feed = int.Parse(txtFeed.Text),
-                Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
-                Width = double.Parse(txtWidthRectangle.Text),
-                Height = double.Parse(txtHeightRectangle.Text),
-                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
-            };
+                bool simulate = chkSimulateSquare.Checked;
+                string[] start = txtStartRectangle.Text.Split(',');
+
+                Rectangle rectangle = new Rectangle()
+                {
+                    Feed = int.Parse(txtFeed.Text),
+                    Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
+                    Width = double.Parse(txtWidthRectangle.Text),
+                    Height = double.Parse(txtHeightRectangle.Text),
+                    SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
+                };
            
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle, simulate);
+                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle, simulate);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
