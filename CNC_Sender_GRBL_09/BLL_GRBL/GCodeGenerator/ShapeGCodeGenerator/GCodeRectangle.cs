@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using BLL_GRBL.DomainValidation;
+using BLL_GRBL.DomainValidation.Rectangle;
 using ENT_Sender_GRBL;
 
 namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
@@ -11,7 +12,7 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
         public override StringBuilder GenerateGCode(Geometric shape)
         {
             Rectangle rectangle = (Rectangle)shape;
-            return GenerateGcode(rectangle, true);
+            return GenerateGcode(rectangle, false);
         }
 
         public override StringBuilder GenerateSimulatorGCode(Geometric shape)
