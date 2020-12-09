@@ -9,7 +9,7 @@ namespace BLL_GRBL.DomainValidation.Rectangle
     {
         public bool IsSatisfiedBy(ENT_Sender_GRBL.Rectangle entity)
         {
-            double maxSide = double.Parse(ConfigurationManager.AppSettings["Max_Height_mm"]);
+            double maxSide = double.Parse(ConfigurationManager.AppSettings["MAX_Y_AXIS_mm"]);
             return LineValidation.IsValid(entity.Height, entity.Start.Y, maxSide);
         }
     }

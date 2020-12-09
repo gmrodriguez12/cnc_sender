@@ -13,7 +13,7 @@ namespace BLL_GRBL.GCodeValidation.Square
     {
         public bool IsSatisfiedBy(ENT_Sender_GRBL.Square entity)
         {
-            double maxSide = double.Parse(ConfigurationManager.AppSettings["Max_Width_mm"]);
+            double maxSide = double.Parse(ConfigurationManager.AppSettings["MAX_AXIS_X_mm"]);
             return LineValidation.IsValid(entity.Side, entity.Start.Y, maxSide);
         }
     }
