@@ -6,7 +6,8 @@ namespace BLL_GRBL.GCodeValidation.Square
     {
         public SquareIsValid()
         {
-            Add("SquareSideIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareSideIsValid(), "Side validation error: Expected value is > 0 and < Max"));
+            Add("SquareVerticalSideIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareVerticalSideIsValid(), "Vertical Side Error: Expected value is > 0 and < Max Height"));
+            Add("SquareHorizontalSideIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareHorizontalSideIsValid(), "Horizontal Side Error: Expected value is > 0 and < Max Width"));
         }
     }
 }
