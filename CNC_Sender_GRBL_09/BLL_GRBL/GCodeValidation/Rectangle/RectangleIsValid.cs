@@ -1,4 +1,5 @@
-﻿using BLL_GRBL.GCodeValidation.Rectangle;
+﻿using BLL_GRBL.GCodeValidation.General;
+using BLL_GRBL.GCodeValidation.Rectangle;
 using DomainValidation.Validation;
 
 namespace BLL_GRBL.DomainValidation.Rectangle
@@ -10,6 +11,8 @@ namespace BLL_GRBL.DomainValidation.Rectangle
             Add("RectangleHorizontaltIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleHorizontaltIsValid(), "Vertical Side Error: Expected value is > 0 and < Max X Axis configured value"));
             Add("RectangleVerticalIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleVerticalIsValid(), "Horizontal Side Error: Expected value is > 0 and < Max Y Axis configured value"));
             Add("RectangleZHeightIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleZHeightIsValid(), "Height Z Error: Expected value is > 0 and < Max Z Axis configured value"));
+            Add("ShapeOriginIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new ShapeOriginIsValid(), "Origin error: x, y or z value not between 0 and max axis configured value"));
+
         }
     }
 }

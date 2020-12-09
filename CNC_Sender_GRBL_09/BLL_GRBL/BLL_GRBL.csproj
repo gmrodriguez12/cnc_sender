@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GCodeValidation\General\ShapeOriginIsValid.cs" />
     <Compile Include="GCodeValidation\LineValidation.cs" />
     <Compile Include="GCodeValidation\OriginValidation.cs" />
     <Compile Include="GCodeValidation\Rectangle\RectangleHorizontaltIsValid.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="GCodeValidation\Rectangle\RectangleZHeightIsValid.cs" />
     <Compile Include="GCodeValidation\Square\SquareHorizontalSideIsValid.cs" />
     <Compile Include="GCodeValidation\Square\SquareIsValid.cs" />
+    <Compile Include="GCodeValidation\Square\SquareOriginIsValid.cs" />
     <Compile Include="GCodeValidation\Square\SquareVerticalSideIsValid.cs" />
     <Compile Include="GCodeValidation\Square\SquareZHeightIsValid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
