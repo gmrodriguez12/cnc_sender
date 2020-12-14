@@ -28,7 +28,7 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
             var validation = new SquareIsValid().Validate(square);
 
             if (!validation.IsValid)
-                throw new Exception(validation.Erros.First().Message);
+                throw new Exception(string.Join("\n", validation.Erros.Select(w => w.Message)));
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GMovement(square.Start, "G0"));

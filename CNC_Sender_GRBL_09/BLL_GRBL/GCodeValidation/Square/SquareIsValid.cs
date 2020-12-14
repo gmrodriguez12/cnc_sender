@@ -7,11 +7,10 @@ namespace BLL_GRBL.GCodeValidation.Square
     {
         public SquareIsValid()
         {
-            Add("SquareVerticalSideIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareVerticalSideIsValid(), "Vertical Side Error: Expected value is > 0 and < Max Y Axis configured value"));
-            Add("SquareHorizontalSideIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareHorizontalSideIsValid(), "Horizontal Side Error: Expected value is > 0 and < Max X Axis configured value"));
-            Add("SquareZHeightIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareZHeightIsValid(), "Height Z Error: Expected value is > 0 and < Max Z Axis configured value"));
-            Add("SquareZHeightIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareZHeightIsValid(), "Height Z Error: Expected value is > 0 and < Max Z Axis configured value"));
-            Add("ShapeOriginIsValid", new Rule<ENT_Sender_GRBL.Square>(new ShapeOriginIsValid(), "Origin error: x, y or z value not between 0 and max axis configured value"));
+            Add("SquareVerticalSideIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareVerticalSideIsValid(), "Axis Y Out of Range Error: The expected value must be between 0 and Max config Y"));
+            Add("SquareHorizontalSideIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareHorizontalSideIsValid(), "Axis X Out of Range Error: The expected value must be between 0 and Max config X"));
+            Add("SquareZHeightIsValid", new Rule<ENT_Sender_GRBL.Square>(new SquareZHeightIsValid(), "Axis Z Out of Range Error: The expected value must be between 0 and Max config Z"));
+            Add("ShapeOriginIsValid", new Rule<ENT_Sender_GRBL.Square>(new ShapeOriginIsValid(), "Origin error: X, Y or Z value not between 0 and max axis configured value"));
         }
     }
 }
