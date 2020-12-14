@@ -13,8 +13,8 @@ namespace BLL_GRBL.GCodeValidation.Rectangle
     {
         public bool IsSatisfiedBy(ENT_Sender_GRBL.Rectangle entity)
         {
-            double max = double.Parse(ConfigurationManager.AppSettings["MAX_AXIS_Z_mm"]);
-            return LineValidation.IsValid(entity.SafetyHeightZ, entity.Start.Z, max);
+            double maxAxisZ = double.Parse(ConfigurationManager.AppSettings["MAX_AXIS_Z_mm"]);
+            return LineValidation.IsValid(entity.SafetyHeightZ, entity.Start.Z, maxAxisZ);
         }
     }
 }
