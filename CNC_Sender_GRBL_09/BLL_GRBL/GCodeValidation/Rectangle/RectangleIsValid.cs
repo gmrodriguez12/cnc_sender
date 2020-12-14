@@ -1,6 +1,8 @@
 ﻿using BLL_GRBL.GCodeValidation.General;
 using BLL_GRBL.GCodeValidation.Rectangle;
 using DomainValidation.Validation;
+using System.Reflection;
+using System.Resources;
 
 namespace BLL_GRBL.DomainValidation.Rectangle
 {
@@ -8,10 +10,10 @@ namespace BLL_GRBL.DomainValidation.Rectangle
     {
         public RectangleIsValid()
         {
-            Add("RectangleHorizontaltIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleHorizontaltIsValid(), "Vertical Side Error: Expected value is > 0 and < Max X Axis configured value"));
-            Add("RectangleVerticalIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleVerticalIsValid(), "Horizontal Side Error: Expected value is > 0 and < Max Y Axis configured value"));
-            Add("RectangleZHeightIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleZHeightIsValid(), "Height Z Error: Expected value is > 0 and < Max Z Axis configured value"));
-            Add("ShapeOriginIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new ShapeOriginIsValid(), "Origin error: x, y or z value not between 0 and max axis configured value"));
+            Add("RectangleHorizontaltIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleHorizontaltIsValid(), "Axis X Out of Range Error: The expected value must be between 0 and Max config X"));
+            Add("RectangleVerticalIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleVerticalIsValid(), "Axis Y Out of Range Error: The expected value must be between 0 and Max config Y"));
+            Add("RectangleZHeightIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new RectangleZHeightIsValid(), "Axis Z Out of Range Error: The expected value must be between 0 and Max config Z"));
+            Add("ShapeOriginIsValid", new Rule<ENT_Sender_GRBL.Rectangle>(new ShapeOriginIsValid(), "Origin error: X, Y or Z value not between 0 and max axis configured value"));
         }
     }
 }
