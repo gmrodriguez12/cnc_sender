@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL_GRBL.GCodeGenerator.SettingsGCodeGenerator
 {
-    public class GCodeSetting
+    public class GCodeSetting : IGCodeSetting
     {
         public string ApplySetting(short property, double value)
         {
@@ -14,6 +14,11 @@ namespace BLL_GRBL.GCodeGenerator.SettingsGCodeGenerator
         }
 
         public string ReadSetting(short property)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> ReadSettings()
         {
             throw new NotImplementedException();
         }

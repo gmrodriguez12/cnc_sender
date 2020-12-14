@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GCodeGenerator\SettingsGCodeGenerator\IGCodeSetting.cs" />
     <Compile Include="GCodeValidation\General\ShapeOriginIsValid.cs" />
     <Compile Include="GCodeValidation\LineValidation.cs" />
     <Compile Include="GCodeValidation\OriginValidation.cs" />

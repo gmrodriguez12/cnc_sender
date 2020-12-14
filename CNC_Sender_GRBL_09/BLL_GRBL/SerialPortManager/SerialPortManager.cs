@@ -9,7 +9,7 @@ namespace BLL_Sender_GRBL.SerialPortManager
     public static class SerialPortManager
     {
         public static SerialPort serial = new SerialPort();
-
+        public static string Properties { get; set; }
         public static string[] ListAvailablePorts()
         {
             return SerialPort.GetPortNames();
@@ -24,9 +24,11 @@ namespace BLL_Sender_GRBL.SerialPortManager
             serial.StopBits = StopBits.One;
             serial.Handshake = Handshake.None;
             serial.NewLine = "\n";
-            serial.WriteTimeout = 1000;
-            serial.DtrEnable = false;
-            serial.RtsEnable = false;
+            serial.WriteTimeout = 2000;
+            serial.ReadTimeout = 2000;
+            serial.DtrEnable = true;
+            serial.RtsEnable = true;
+            serial.DataReceived += new SerialDataReceivedEventHandler(Port_DataReceived);
             serial.Open();
         }
 
@@ -56,7 +58,6 @@ namespace BLL_Sender_GRBL.SerialPortManager
                 if(!string.IsNullOrEmpty(line))
                     serial.WriteLine(line);
             }
-            
         }
 
         public static void ExecuteCommands(StringBuilder lines)
@@ -67,6 +68,16 @@ namespace BLL_Sender_GRBL.SerialPortManager
             string[] setLines = lines.ToString().Split(Environment.NewLine.ToCharArray());
 
             ExecuteCommands(setLines);
+        }
+
+        public static void Port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            Properties = serial.ReadExisting();
+        }
+
+        public static string SerialData()
+        {
+            return serial.ReadLine();
         }
     }
 }

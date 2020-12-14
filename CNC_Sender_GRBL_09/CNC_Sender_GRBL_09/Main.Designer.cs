@@ -92,6 +92,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
             this.btnGenCodeTriangle = new System.Windows.Forms.Button();
+            this.btnProperties = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -116,9 +117,9 @@
             this.groupBox1.Controls.Add(this.txtSquareSide);
             this.groupBox1.Controls.Add(this.btnGenerateSquare);
             this.groupBox1.Location = new System.Drawing.Point(780, 344);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(674, 362);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
@@ -138,16 +139,17 @@
             // txtStartSquare
             // 
             this.txtStartSquare.Location = new System.Drawing.Point(148, 236);
-            this.txtStartSquare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStartSquare.Margin = new System.Windows.Forms.Padding(4);
             this.txtStartSquare.Name = "txtStartSquare";
             this.txtStartSquare.Size = new System.Drawing.Size(108, 31);
             this.txtStartSquare.TabIndex = 38;
+            this.txtStartSquare.Text = "0,0,0";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(288, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(348, 302);
             this.pictureBox1.TabIndex = 35;
@@ -166,7 +168,7 @@
             // txtSquareSide
             // 
             this.txtSquareSide.Location = new System.Drawing.Point(148, 186);
-            this.txtSquareSide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSquareSide.Margin = new System.Windows.Forms.Padding(4);
             this.txtSquareSide.Name = "txtSquareSide";
             this.txtSquareSide.Size = new System.Drawing.Size(108, 31);
             this.txtSquareSide.TabIndex = 3;
@@ -174,7 +176,7 @@
             // btnGenerateSquare
             // 
             this.btnGenerateSquare.Location = new System.Drawing.Point(21, 283);
-            this.btnGenerateSquare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenerateSquare.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerateSquare.Name = "btnGenerateSquare";
             this.btnGenerateSquare.Size = new System.Drawing.Size(235, 44);
             this.btnGenerateSquare.TabIndex = 0;
@@ -186,7 +188,7 @@
             // 
             this.chkSimulateSquare.AutoSize = true;
             this.chkSimulateSquare.Location = new System.Drawing.Point(234, 894);
-            this.chkSimulateSquare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkSimulateSquare.Margin = new System.Windows.Forms.Padding(4);
             this.chkSimulateSquare.Name = "chkSimulateSquare";
             this.chkSimulateSquare.Size = new System.Drawing.Size(116, 29);
             this.chkSimulateSquare.TabIndex = 22;
@@ -196,7 +198,7 @@
             // txtGCode
             // 
             this.txtGCode.Location = new System.Drawing.Point(22, 62);
-            this.txtGCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtGCode.Multiline = true;
             this.txtGCode.Name = "txtGCode";
             this.txtGCode.Size = new System.Drawing.Size(688, 812);
@@ -205,7 +207,7 @@
             // btnCutSquare
             // 
             this.btnCutSquare.Location = new System.Drawing.Point(22, 887);
-            this.btnCutSquare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCutSquare.Margin = new System.Windows.Forms.Padding(4);
             this.btnCutSquare.Name = "btnCutSquare";
             this.btnCutSquare.Size = new System.Drawing.Size(204, 44);
             this.btnCutSquare.TabIndex = 1;
@@ -226,9 +228,9 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(12, 29);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(752, 227);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
@@ -238,7 +240,7 @@
             // txtFeed
             // 
             this.txtFeed.Location = new System.Drawing.Point(278, 171);
-            this.txtFeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFeed.Margin = new System.Windows.Forms.Padding(4);
             this.txtFeed.Name = "txtFeed";
             this.txtFeed.Size = new System.Drawing.Size(148, 31);
             this.txtFeed.TabIndex = 25;
@@ -257,7 +259,7 @@
             // btnHoming
             // 
             this.btnHoming.Location = new System.Drawing.Point(536, 102);
-            this.btnHoming.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHoming.Margin = new System.Windows.Forms.Padding(4);
             this.btnHoming.Name = "btnHoming";
             this.btnHoming.Size = new System.Drawing.Size(178, 44);
             this.btnHoming.TabIndex = 23;
@@ -268,7 +270,7 @@
             // btnSetHome
             // 
             this.btnSetHome.Location = new System.Drawing.Point(536, 42);
-            this.btnSetHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSetHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetHome.Name = "btnSetHome";
             this.btnSetHome.Size = new System.Drawing.Size(178, 44);
             this.btnSetHome.TabIndex = 22;
@@ -279,7 +281,7 @@
             // btnOpen
             // 
             this.btnOpen.Location = new System.Drawing.Point(22, 42);
-            this.btnOpen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(4);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(144, 44);
             this.btnOpen.TabIndex = 0;
@@ -290,7 +292,7 @@
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(22, 102);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(144, 44);
             this.btnClose.TabIndex = 1;
@@ -302,7 +304,7 @@
             // 
             this.cboCom.FormattingEnabled = true;
             this.cboCom.Location = new System.Drawing.Point(278, 46);
-            this.cboCom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCom.Margin = new System.Windows.Forms.Padding(4);
             this.cboCom.Name = "cboCom";
             this.cboCom.Size = new System.Drawing.Size(148, 33);
             this.cboCom.TabIndex = 3;
@@ -348,9 +350,9 @@
             this.groupBox3.Controls.Add(this.btnXright);
             this.groupBox3.Controls.Add(this.btnXleft);
             this.groupBox3.Location = new System.Drawing.Point(780, 29);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(298, 306);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
@@ -360,7 +362,7 @@
             // btnZDown
             // 
             this.btnZDown.Location = new System.Drawing.Point(160, 231);
-            this.btnZDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZDown.Margin = new System.Windows.Forms.Padding(4);
             this.btnZDown.Name = "btnZDown";
             this.btnZDown.Size = new System.Drawing.Size(104, 42);
             this.btnZDown.TabIndex = 28;
@@ -371,7 +373,7 @@
             // btnZUp
             // 
             this.btnZUp.Location = new System.Drawing.Point(42, 231);
-            this.btnZUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnZUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnZUp.Name = "btnZUp";
             this.btnZUp.Size = new System.Drawing.Size(112, 42);
             this.btnZUp.TabIndex = 29;
@@ -382,7 +384,7 @@
             // btnYrigth
             // 
             this.btnYrigth.Location = new System.Drawing.Point(160, 171);
-            this.btnYrigth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnYrigth.Margin = new System.Windows.Forms.Padding(4);
             this.btnYrigth.Name = "btnYrigth";
             this.btnYrigth.Size = new System.Drawing.Size(104, 42);
             this.btnYrigth.TabIndex = 26;
@@ -393,7 +395,7 @@
             // btnYleft
             // 
             this.btnYleft.Location = new System.Drawing.Point(42, 171);
-            this.btnYleft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnYleft.Margin = new System.Windows.Forms.Padding(4);
             this.btnYleft.Name = "btnYleft";
             this.btnYleft.Size = new System.Drawing.Size(112, 42);
             this.btnYleft.TabIndex = 27;
@@ -414,7 +416,7 @@
             // txtDistance
             // 
             this.txtDistance.Location = new System.Drawing.Point(144, 42);
-            this.txtDistance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDistance.Margin = new System.Windows.Forms.Padding(4);
             this.txtDistance.Name = "txtDistance";
             this.txtDistance.Size = new System.Drawing.Size(108, 31);
             this.txtDistance.TabIndex = 24;
@@ -423,7 +425,7 @@
             // btnXright
             // 
             this.btnXright.Location = new System.Drawing.Point(160, 108);
-            this.btnXright.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXright.Margin = new System.Windows.Forms.Padding(4);
             this.btnXright.Name = "btnXright";
             this.btnXright.Size = new System.Drawing.Size(104, 42);
             this.btnXright.TabIndex = 0;
@@ -434,7 +436,7 @@
             // btnXleft
             // 
             this.btnXleft.Location = new System.Drawing.Point(42, 108);
-            this.btnXleft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXleft.Margin = new System.Windows.Forms.Padding(4);
             this.btnXleft.Name = "btnXleft";
             this.btnXleft.Size = new System.Drawing.Size(112, 42);
             this.btnXleft.TabIndex = 1;
@@ -444,13 +446,14 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnProperties);
             this.groupBox4.Controls.Add(this.txtGCode);
             this.groupBox4.Controls.Add(this.chkSimulateSquare);
             this.groupBox4.Controls.Add(this.btnCutSquare);
             this.groupBox4.Location = new System.Drawing.Point(6, 265);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox4.Size = new System.Drawing.Size(758, 956);
             this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
@@ -467,9 +470,9 @@
             this.groupBox5.Controls.Add(this.txtWidthRectangle);
             this.groupBox5.Controls.Add(this.btnGenCodeRectangle);
             this.groupBox5.Location = new System.Drawing.Point(776, 715);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox5.Size = new System.Drawing.Size(678, 448);
             this.groupBox5.TabIndex = 31;
             this.groupBox5.TabStop = false;
@@ -489,7 +492,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(82, 37);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(566, 238);
             this.pictureBox2.TabIndex = 35;
@@ -498,10 +501,11 @@
             // txtStartRectangle
             // 
             this.txtStartRectangle.Location = new System.Drawing.Point(166, 387);
-            this.txtStartRectangle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStartRectangle.Margin = new System.Windows.Forms.Padding(4);
             this.txtStartRectangle.Name = "txtStartRectangle";
             this.txtStartRectangle.Size = new System.Drawing.Size(108, 31);
             this.txtStartRectangle.TabIndex = 25;
+            this.txtStartRectangle.Text = "0,0,0";
             // 
             // label8
             // 
@@ -516,7 +520,7 @@
             // txtHeightRectangle
             // 
             this.txtHeightRectangle.Location = new System.Drawing.Point(166, 340);
-            this.txtHeightRectangle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHeightRectangle.Margin = new System.Windows.Forms.Padding(4);
             this.txtHeightRectangle.Name = "txtHeightRectangle";
             this.txtHeightRectangle.Size = new System.Drawing.Size(108, 31);
             this.txtHeightRectangle.TabIndex = 24;
@@ -534,7 +538,7 @@
             // txtWidthRectangle
             // 
             this.txtWidthRectangle.Location = new System.Drawing.Point(166, 288);
-            this.txtWidthRectangle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtWidthRectangle.Margin = new System.Windows.Forms.Padding(4);
             this.txtWidthRectangle.Name = "txtWidthRectangle";
             this.txtWidthRectangle.Size = new System.Drawing.Size(108, 31);
             this.txtWidthRectangle.TabIndex = 23;
@@ -542,7 +546,7 @@
             // btnGenCodeRectangle
             // 
             this.btnGenCodeRectangle.Location = new System.Drawing.Point(326, 383);
-            this.btnGenCodeRectangle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenCodeRectangle.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenCodeRectangle.Name = "btnGenCodeRectangle";
             this.btnGenCodeRectangle.Size = new System.Drawing.Size(268, 44);
             this.btnGenCodeRectangle.TabIndex = 26;
@@ -559,9 +563,9 @@
             this.groupBox6.Controls.Add(this.txtStartLine);
             this.groupBox6.Controls.Add(this.btnGenLineCode);
             this.groupBox6.Location = new System.Drawing.Point(1464, 344);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox6.Size = new System.Drawing.Size(614, 362);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
@@ -571,7 +575,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(284, 65);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(298, 256);
             this.pictureBox3.TabIndex = 35;
@@ -590,7 +594,7 @@
             // txtFinishLine
             // 
             this.txtFinishLine.Location = new System.Drawing.Point(152, 213);
-            this.txtFinishLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFinishLine.Margin = new System.Windows.Forms.Padding(4);
             this.txtFinishLine.Name = "txtFinishLine";
             this.txtFinishLine.Size = new System.Drawing.Size(108, 31);
             this.txtFinishLine.TabIndex = 31;
@@ -608,15 +612,16 @@
             // txtStartLine
             // 
             this.txtStartLine.Location = new System.Drawing.Point(152, 160);
-            this.txtStartLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStartLine.Margin = new System.Windows.Forms.Padding(4);
             this.txtStartLine.Name = "txtStartLine";
             this.txtStartLine.Size = new System.Drawing.Size(108, 31);
             this.txtStartLine.TabIndex = 30;
+            this.txtStartLine.Text = "0,0,0";
             // 
             // btnGenLineCode
             // 
             this.btnGenLineCode.Location = new System.Drawing.Point(26, 277);
-            this.btnGenLineCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenLineCode.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenLineCode.Name = "btnGenLineCode";
             this.btnGenLineCode.Size = new System.Drawing.Size(238, 44);
             this.btnGenLineCode.TabIndex = 32;
@@ -633,9 +638,9 @@
             this.groupBox7.Controls.Add(this.txtRadius);
             this.groupBox7.Controls.Add(this.btnGenCircleCode);
             this.groupBox7.Location = new System.Drawing.Point(1466, 715);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox7.Size = new System.Drawing.Size(612, 335);
             this.groupBox7.TabIndex = 33;
             this.groupBox7.TabStop = false;
@@ -654,16 +659,17 @@
             // txtCenterCircle
             // 
             this.txtCenterCircle.Location = new System.Drawing.Point(152, 163);
-            this.txtCenterCircle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCenterCircle.Margin = new System.Windows.Forms.Padding(4);
             this.txtCenterCircle.Name = "txtCenterCircle";
             this.txtCenterCircle.Size = new System.Drawing.Size(108, 31);
             this.txtCenterCircle.TabIndex = 38;
+            this.txtCenterCircle.Text = "0,0,0";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(290, 31);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(292, 277);
             this.pictureBox5.TabIndex = 37;
@@ -682,7 +688,7 @@
             // txtRadius
             // 
             this.txtRadius.Location = new System.Drawing.Point(152, 213);
-            this.txtRadius.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRadius.Margin = new System.Windows.Forms.Padding(4);
             this.txtRadius.Name = "txtRadius";
             this.txtRadius.Size = new System.Drawing.Size(108, 31);
             this.txtRadius.TabIndex = 39;
@@ -690,7 +696,7 @@
             // btnGenCircleCode
             // 
             this.btnGenCircleCode.Location = new System.Drawing.Point(16, 267);
-            this.btnGenCircleCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenCircleCode.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenCircleCode.Name = "btnGenCircleCode";
             this.btnGenCircleCode.Size = new System.Drawing.Size(248, 44);
             this.btnGenCircleCode.TabIndex = 40;
@@ -709,9 +715,9 @@
             this.groupBox8.Controls.Add(this.txtTriangleHeight);
             this.groupBox8.Controls.Add(this.btnGenCodeTriangle);
             this.groupBox8.Location = new System.Drawing.Point(1088, 29);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(6);
             this.groupBox8.Size = new System.Drawing.Size(866, 306);
             this.groupBox8.TabIndex = 34;
             this.groupBox8.TabStop = false;
@@ -721,7 +727,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(262, 27);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(572, 254);
             this.pictureBox4.TabIndex = 43;
@@ -740,10 +746,11 @@
             // txtTriangleStart
             // 
             this.txtTriangleStart.Location = new System.Drawing.Point(140, 71);
-            this.txtTriangleStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTriangleStart.Margin = new System.Windows.Forms.Padding(4);
             this.txtTriangleStart.Name = "txtTriangleStart";
             this.txtTriangleStart.Size = new System.Drawing.Size(108, 31);
             this.txtTriangleStart.TabIndex = 40;
+            this.txtTriangleStart.Text = "0,0,0";
             // 
             // label9
             // 
@@ -758,7 +765,7 @@
             // txtTriangleWidth
             // 
             this.txtTriangleWidth.Location = new System.Drawing.Point(140, 177);
-            this.txtTriangleWidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTriangleWidth.Margin = new System.Windows.Forms.Padding(4);
             this.txtTriangleWidth.Name = "txtTriangleWidth";
             this.txtTriangleWidth.Size = new System.Drawing.Size(108, 31);
             this.txtTriangleWidth.TabIndex = 42;
@@ -776,7 +783,7 @@
             // txtTriangleHeight
             // 
             this.txtTriangleHeight.Location = new System.Drawing.Point(140, 125);
-            this.txtTriangleHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTriangleHeight.Margin = new System.Windows.Forms.Padding(4);
             this.txtTriangleHeight.Name = "txtTriangleHeight";
             this.txtTriangleHeight.Size = new System.Drawing.Size(108, 31);
             this.txtTriangleHeight.TabIndex = 41;
@@ -784,13 +791,24 @@
             // btnGenCodeTriangle
             // 
             this.btnGenCodeTriangle.Location = new System.Drawing.Point(14, 240);
-            this.btnGenCodeTriangle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenCodeTriangle.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenCodeTriangle.Name = "btnGenCodeTriangle";
             this.btnGenCodeTriangle.Size = new System.Drawing.Size(238, 44);
             this.btnGenCodeTriangle.TabIndex = 27;
             this.btnGenCodeTriangle.Text = "Generar GCode";
             this.btnGenCodeTriangle.UseVisualStyleBackColor = true;
             this.btnGenCodeTriangle.Click += new System.EventHandler(this.btnGenCodeTriangle_Click);
+            // 
+            // btnProperties
+            // 
+            this.btnProperties.Location = new System.Drawing.Point(377, 885);
+            this.btnProperties.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProperties.Name = "btnProperties";
+            this.btnProperties.Size = new System.Drawing.Size(204, 44);
+            this.btnProperties.TabIndex = 23;
+            this.btnProperties.Text = "Props";
+            this.btnProperties.UseVisualStyleBackColor = true;
+            this.btnProperties.Click += new System.EventHandler(this.BtnProperties_Click);
             // 
             // Main
             // 
@@ -805,9 +823,10 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.Text = "CNC Soft Beta1.0";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -899,6 +918,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtTriangleStart;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnProperties;
     }
 }
 

@@ -4,6 +4,9 @@ using BLL_Sender_GRBL.GCodeGenerator.SimpleMovements;
 using BLL_Sender_GRBL.SerialPortManager;
 using ENT_Sender_GRBL;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Ports;
 using System.Text;
 using System.Windows.Forms;
 
@@ -38,13 +41,14 @@ namespace CNC_Sender_GRBL_09
             try
             {
                 SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());
+
                 simpleMovements = new GCodeSimpleMovements();
                 feed = !string.IsNullOrEmpty(txtFeed.Text) ? double.Parse(txtFeed.Text) : 500;
                 lblStatus.Text = "Conexión Abierta";
             }
             catch(Exception ex)
             {
-                txtGCode.Text = ex.Message;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblStatus.Text = "Error";
             }
         }
@@ -239,5 +243,11 @@ namespace CNC_Sender_GRBL_09
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnProperties_Click(object sender, EventArgs e)
+        {
+            SerialPortManager.serial.WriteLine("$$");
+            txtGCode.Text = SerialPortManager.Properties;
+        }
     }
-}
+} 
