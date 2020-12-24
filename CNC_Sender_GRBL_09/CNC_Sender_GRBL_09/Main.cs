@@ -2,6 +2,7 @@
 using BLL_Sender_GRBL.GCodeGenerator;
 using BLL_Sender_GRBL.GCodeGenerator.SimpleMovements;
 using BLL_Sender_GRBL.SerialPortManager;
+using ENT_GRBL.Config;
 using ENT_Sender_GRBL;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace CNC_Sender_GRBL_09
         const int SAFE_VERTICAL_HEIGHT_CM = 10;
         StringBuilder bufferCode = new StringBuilder();
         GCodeSimpleMovements simpleMovements = null;
-        double feed;
+        double feed = 0;
 
         public Main()
         {
@@ -39,12 +40,11 @@ namespace CNC_Sender_GRBL_09
         private void BtnOpen_Click(object sender, EventArgs e)
         {
             try
-            {
-                SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());
-
-                simpleMovements = new GCodeSimpleMovements();
+            {               
+                SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());             
+                
                 feed = !string.IsNullOrEmpty(txtFeed.Text) ? double.Parse(txtFeed.Text) : 500;
-                lblStatus.Text = "Conexión Abierta";
+                lblStatus.Text = "Connection Opened";
             }
             catch(Exception ex)
             {

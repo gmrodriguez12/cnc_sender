@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="Config\Grbl09Settings.cs" />
+    <Compile Include="Config\IndexSetting.cs" />
     <Compile Include="CustomExceptions\CircleException.cs" />
     <Compile Include="CustomExceptions\SerialPortException.cs" />
     <Compile Include="Enum\EnumHelpers.cs" />
