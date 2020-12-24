@@ -40,6 +40,13 @@ namespace ENT_GRBL.Config
             yMaxTravel,
             zMaxTravel
         }
+
+        public enum StepBymmAxis
+        {
+            x = 100,
+            y,
+            z
+        }
     }
 }
 

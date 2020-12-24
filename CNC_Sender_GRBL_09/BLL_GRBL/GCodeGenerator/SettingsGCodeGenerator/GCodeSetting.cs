@@ -12,15 +12,5 @@ namespace BLL_GRBL.GCodeGenerator.SettingsGCodeGenerator
         {
             return $"${property}={value}";
         }
-
-        public string ReadSetting(short property)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<string> ReadSettings()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

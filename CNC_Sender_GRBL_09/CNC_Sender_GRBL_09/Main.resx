@@ -245,4 +245,7 @@
         JooC9Pz8/AfsisCUWg53aAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="label20.Text" xml:space="preserve">
+    <value>Correction executed success; please move axis and measure the distance traveled again. If the new distance traveled isn't perfect, please run correction with the new (distance traveled) for improving the calibration.</value>
+  </data>
 </root>

@@ -9,7 +9,5 @@ namespace BLL_GRBL.GCodeGenerator.SettingsGCodeGenerator
     public interface IGCodeSetting
     {
         string ApplySetting(short property, double value);
-        string ReadSetting(short property);
-        List<string> ReadSettings();
     }
 }

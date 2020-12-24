@@ -60,6 +60,7 @@
             this.btnXright = new System.Windows.Forms.Button();
             this.btnXleft = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnProperties = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -92,7 +93,16 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
             this.btnGenCodeTriangle = new System.Windows.Forms.Button();
-            this.btnProperties = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.cboAxis = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblFixedDistance = new System.Windows.Forms.Label();
+            this.btnMoveAxis = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtDistanceTraveled = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -106,6 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -187,7 +198,7 @@
             // chkSimulateSquare
             // 
             this.chkSimulateSquare.AutoSize = true;
-            this.chkSimulateSquare.Location = new System.Drawing.Point(234, 894);
+            this.chkSimulateSquare.Location = new System.Drawing.Point(234, 842);
             this.chkSimulateSquare.Margin = new System.Windows.Forms.Padding(4);
             this.chkSimulateSquare.Name = "chkSimulateSquare";
             this.chkSimulateSquare.Size = new System.Drawing.Size(116, 29);
@@ -197,16 +208,16 @@
             // 
             // txtGCode
             // 
-            this.txtGCode.Location = new System.Drawing.Point(22, 62);
+            this.txtGCode.Location = new System.Drawing.Point(22, 54);
             this.txtGCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtGCode.Multiline = true;
             this.txtGCode.Name = "txtGCode";
-            this.txtGCode.Size = new System.Drawing.Size(688, 812);
+            this.txtGCode.Size = new System.Drawing.Size(688, 759);
             this.txtGCode.TabIndex = 2;
             // 
             // btnCutSquare
             // 
-            this.btnCutSquare.Location = new System.Drawing.Point(22, 887);
+            this.btnCutSquare.Location = new System.Drawing.Point(22, 835);
             this.btnCutSquare.Margin = new System.Windows.Forms.Padding(4);
             this.btnCutSquare.Name = "btnCutSquare";
             this.btnCutSquare.Size = new System.Drawing.Size(204, 44);
@@ -406,7 +417,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 44);
+            this.label6.Location = new System.Drawing.Point(36, 47);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 25);
@@ -454,10 +465,21 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox4.Size = new System.Drawing.Size(758, 956);
+            this.groupBox4.Size = new System.Drawing.Size(758, 898);
             this.groupBox4.TabIndex = 30;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ejecución";
+            // 
+            // btnProperties
+            // 
+            this.btnProperties.Location = new System.Drawing.Point(377, 833);
+            this.btnProperties.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProperties.Name = "btnProperties";
+            this.btnProperties.Size = new System.Drawing.Size(204, 44);
+            this.btnProperties.TabIndex = 23;
+            this.btnProperties.Text = "Props";
+            this.btnProperties.UseVisualStyleBackColor = true;
+            this.btnProperties.Click += new System.EventHandler(this.BtnProperties_Click);
             // 
             // groupBox5
             // 
@@ -799,22 +821,117 @@
             this.btnGenCodeTriangle.UseVisualStyleBackColor = true;
             this.btnGenCodeTriangle.Click += new System.EventHandler(this.btnGenCodeTriangle_Click);
             // 
-            // btnProperties
+            // groupBox9
             // 
-            this.btnProperties.Location = new System.Drawing.Point(377, 885);
-            this.btnProperties.Margin = new System.Windows.Forms.Padding(4);
-            this.btnProperties.Name = "btnProperties";
-            this.btnProperties.Size = new System.Drawing.Size(204, 44);
-            this.btnProperties.TabIndex = 23;
-            this.btnProperties.Text = "Props";
-            this.btnProperties.UseVisualStyleBackColor = true;
-            this.btnProperties.Click += new System.EventHandler(this.BtnProperties_Click);
+            this.groupBox9.Controls.Add(this.label20);
+            this.groupBox9.Controls.Add(this.button1);
+            this.groupBox9.Controls.Add(this.txtDistanceTraveled);
+            this.groupBox9.Controls.Add(this.label19);
+            this.groupBox9.Controls.Add(this.btnMoveAxis);
+            this.groupBox9.Controls.Add(this.lblFixedDistance);
+            this.groupBox9.Controls.Add(this.label18);
+            this.groupBox9.Controls.Add(this.label17);
+            this.groupBox9.Controls.Add(this.cboAxis);
+            this.groupBox9.Location = new System.Drawing.Point(2099, 56);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(584, 483);
+            this.groupBox9.TabIndex = 35;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Calibration";
+            // 
+            // cboAxis
+            // 
+            this.cboAxis.FormattingEnabled = true;
+            this.cboAxis.Items.AddRange(new object[] {
+            "X",
+            "Y",
+            "Z"});
+            this.cboAxis.Location = new System.Drawing.Point(279, 39);
+            this.cboAxis.Name = "cboAxis";
+            this.cboAxis.Size = new System.Drawing.Size(121, 33);
+            this.cboAxis.TabIndex = 0;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(31, 47);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 25);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "Axis";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(31, 90);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(209, 25);
+            this.label18.TabIndex = 43;
+            this.label18.Text = "Fixed Distance (mm)";
+            // 
+            // lblFixedDistance
+            // 
+            this.lblFixedDistance.AutoSize = true;
+            this.lblFixedDistance.Location = new System.Drawing.Point(274, 90);
+            this.lblFixedDistance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFixedDistance.Name = "lblFixedDistance";
+            this.lblFixedDistance.Size = new System.Drawing.Size(48, 25);
+            this.lblFixedDistance.TabIndex = 44;
+            this.lblFixedDistance.Text = "100";
+            // 
+            // btnMoveAxis
+            // 
+            this.btnMoveAxis.Location = new System.Drawing.Point(36, 130);
+            this.btnMoveAxis.Name = "btnMoveAxis";
+            this.btnMoveAxis.Size = new System.Drawing.Size(158, 45);
+            this.btnMoveAxis.TabIndex = 45;
+            this.btnMoveAxis.Text = "Move Axis";
+            this.btnMoveAxis.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(31, 204);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(240, 25);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "Distance Traveled (mm)";
+            // 
+            // txtDistanceTraveled
+            // 
+            this.txtDistanceTraveled.Location = new System.Drawing.Point(279, 201);
+            this.txtDistanceTraveled.Name = "txtDistanceTraveled";
+            this.txtDistanceTraveled.Size = new System.Drawing.Size(121, 31);
+            this.txtDistanceTraveled.TabIndex = 47;
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(36, 263);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(204, 45);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "Run Correction";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.ForeColor = System.Drawing.Color.Green;
+            this.label20.Location = new System.Drawing.Point(31, 335);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(538, 143);
+            this.label20.TabIndex = 49;
+            this.label20.Text = resources.GetString("label20.Text");
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2096, 1244);
+            this.ClientSize = new System.Drawing.Size(2762, 1244);
+            this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
@@ -849,6 +966,8 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -919,6 +1038,16 @@
         private System.Windows.Forms.TextBox txtTriangleStart;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnProperties;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TextBox txtDistanceTraveled;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnMoveAxis;
+        private System.Windows.Forms.Label lblFixedDistance;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cboAxis;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button1;
     }
 }
 

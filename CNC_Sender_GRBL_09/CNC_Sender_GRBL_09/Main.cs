@@ -182,8 +182,6 @@ namespace CNC_Sender_GRBL_09
                 Height = double.Parse(txtTriangleHeight.Text)
             };
 
-            //if triangle is valid
-
             GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.TriangleRectangle, triangle, simulate);
         }
 
