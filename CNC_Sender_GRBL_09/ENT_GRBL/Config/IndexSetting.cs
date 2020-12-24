@@ -9,7 +9,7 @@ namespace ENT_GRBL.Config
     public static class IndexSetting
     {
         public enum Settings_GRBL_09 {
-            StepPulse = 0,
+            StepPulse,
             StepIdleDelay,
             StepPortInvert,
             DirPortInvert,
