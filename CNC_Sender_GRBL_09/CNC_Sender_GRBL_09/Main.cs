@@ -247,5 +247,24 @@ namespace CNC_Sender_GRBL_09
             SerialPortManager.serial.WriteLine("$$");
             txtGCode.Text = SerialPortManager.Properties;
         }
+
+        private void CboShape_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedShape = cboShape.SelectedIndex;
+            grpSquare.Visible = selectedShape == 0;
+            grpRectangle.Visible = selectedShape == 1;
+            grpTriangle.Visible = selectedShape == 2;
+            grpCircle.Visible = selectedShape == 3;
+            grpLine.Visible = selectedShape == 4;
+
+
+            /*
+             Square
+             Rectangle
+             Triangle             
+             Circle
+             Line
+             */
+        }
     }
 } 

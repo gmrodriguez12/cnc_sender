@@ -77,7 +77,24 @@ namespace BLL_Sender_GRBL.SerialPortManager
             Properties = serial.ReadExisting();
 
             if(Properties != null)            
-                ParseConfig();            
+                ParseConfig();
+
+
+            //while ((serialPort1.IsOpen) && (serialPort1.BytesToRead > 0))
+            //{
+            //    rxString = string.Empty;
+            //    try
+            //    {
+            //        rxString = serialPort1.ReadTo("\r\n");
+            //        this.Invoke(new EventHandler(handleRXData));
+            //        while ((serialPort1.IsOpen)) ;
+            //    }
+            //    catch (Exception exception)
+            //    {
+            //        Console.WriteLine(exception.Message, "can not received data");
+
+            //    }
+            //}
         }
 
         public static string SerialData()
