@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL_GRBL.GCodeValidation
 {
-    public static class OriginValidation
+    public static class PointValidation
     {
         public static bool IsValid(double x, double y, double z)
         {

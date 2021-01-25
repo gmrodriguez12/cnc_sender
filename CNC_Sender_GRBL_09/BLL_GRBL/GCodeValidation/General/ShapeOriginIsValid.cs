@@ -7,7 +7,7 @@ namespace BLL_GRBL.GCodeValidation.General
     {
         public bool IsSatisfiedBy(Geometric entity)
         {
-            return OriginValidation.IsValid(entity.Start.X, entity.Start.Y, entity.Start.Z);
+            return PointValidation.IsValid(entity.Start.X, entity.Start.Y, entity.Start.Z);
         }
     }
 }

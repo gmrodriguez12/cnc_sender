@@ -85,7 +85,7 @@ namespace CNC_Sender_GRBL_09
 
                 Square square = new Square()
                 {
-                    Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
+                    Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
                     Feed = int.Parse(txtFeed.Text),
                     SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
                     Side = double.Parse(txtSquareSide.Text)

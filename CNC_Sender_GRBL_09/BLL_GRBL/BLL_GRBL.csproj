@@ -46,9 +46,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GCodeGenerator\SettingsGCodeGenerator\IGCodeSetting.cs" />
+    <Compile Include="GCodeValidation\Circle\CircleCenterIsValid.cs" />
+    <Compile Include="GCodeValidation\Circle\CircleIsValid.cs" />
+    <Compile Include="GCodeValidation\Circle\CircleRadiusIsValid.cs" />
+    <Compile Include="GCodeValidation\Circle\CircleZHeightIsValid.cs" />
     <Compile Include="GCodeValidation\General\ShapeOriginIsValid.cs" />
     <Compile Include="GCodeValidation\LineValidation.cs" />
-    <Compile Include="GCodeValidation\OriginValidation.cs" />
+    <Compile Include="GCodeValidation\Line\LineIsValid.cs" />
+    <Compile Include="GCodeValidation\Line\LineOriginIsValid.cs" />
+    <Compile Include="GCodeValidation\Line\LineTargetIsValid.cs" />
+    <Compile Include="GCodeValidation\Line\LineZHeightIsValid.cs" />
+    <Compile Include="GCodeValidation\PointValidation.cs" />
     <Compile Include="GCodeValidation\Rectangle\RectangleHorizontaltIsValid.cs" />
     <Compile Include="GCodeValidation\Rectangle\RectangleIsValid.cs" />
     <Compile Include="GCodeGenerator\GCodeShapeFactory.cs" />
@@ -84,6 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GCodeValidation\Triangle\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

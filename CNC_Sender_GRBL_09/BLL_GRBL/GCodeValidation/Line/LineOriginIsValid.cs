@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL_GRBL.GCodeValidation.Square
+namespace BLL_GRBL.GCodeValidation.Line
 {
-    public class SquareOriginIsValid : ISpecification<ENT_Sender_GRBL.Square>
+    public class LineOriginIsValid : ISpecification<ENT_Sender_GRBL.Line>
     {
-        public bool IsSatisfiedBy(ENT_Sender_GRBL.Square entity)
+        public bool IsSatisfiedBy(ENT_Sender_GRBL.Line entity)
         {
             return PointValidation.IsValid(entity.Start.X, entity.Start.Y, entity.Start.Z);
         }
