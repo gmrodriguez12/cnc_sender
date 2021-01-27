@@ -81,7 +81,7 @@ namespace CNC_Sender_GRBL_09
             try
             {
                 bool simulate = chkSimulateSquare.Checked;
-                string[] points = txtStartSquare.Text.Split(',');
+                string[] points = txtSquareOrigin.Text.Split(',');
 
                 Square square = new Square()
                 {
@@ -106,7 +106,12 @@ namespace CNC_Sender_GRBL_09
             StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
 
             txtGCode.Text = gCodeCmd.ToString();
+
+            bufferCode = new StringBuilder();
             bufferCode = gCodeCmd;
+
+            //if(gCodeCmd != null)
+                //SerialPortManager.ExecuteCommands(gCodeCmd);
         }
 
         private void BtnCutSquare_Click(object sender, EventArgs e)
@@ -187,50 +192,64 @@ namespace CNC_Sender_GRBL_09
 
         private void btnGenCircleCode_Click(object sender, EventArgs e)
         {
-            bool simulate = chkSimulateSquare.Checked;
-            string[] start = txtCenterCircle.Text.Split(',');
-
-            Circle circle = new Circle()
+            try
             {
-                Feed = int.Parse(txtFeed.Text),
-                Center = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
-                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
-                Radio = double.Parse(txtRadius.Text)
-            };
+                bool simulate = chkSimulateSquare.Checked;
+                string[] start = txtCenterCircle.Text.Split(',');
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle, simulate);
+                Circle circle = new Circle()
+                {
+                    Feed = int.Parse(txtFeed.Text),
+                    Center = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
+                    SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
+                    Radio = double.Parse(txtRadius.Text)
+                };
+
+                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle, simulate);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGenLineCode_Click(object sender, EventArgs e)
         {
-            bool simulate = chkSimulateSquare.Checked;
-            string[] start = txtStartLine.Text.Split(',');
-            string[] finish = txtFinishLine.Text.Split(',');
-
-            Line line = new Line()
+            try
             {
-                Feed = int.Parse(txtFeed.Text),
-                Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
-                Finish = new Point(double.Parse(finish[0]), double.Parse(finish[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(finish[2])),
-                SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
-            };
+                bool simulate = chkSimulateSquare.Checked;
+                string[] start = txtLinePointA.Text.Split(',');
+                string[] finish = txtLinePointB.Text.Split(',');
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Line, line, simulate);
-        }
+                Line line = new Line()
+                {
+                    Feed = int.Parse(txtFeed.Text),
+                    Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
+                    Finish = new Point(double.Parse(finish[0]), double.Parse(finish[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
+                    SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
+                };
+
+                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Line, line, simulate);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
 
         private void btnGenCodeRectangle_Click(object sender, EventArgs e)
         {
             try
             {
                 bool simulate = chkSimulateSquare.Checked;
-                string[] start = txtStartRectangle.Text.Split(',');
+                string[] start = txtRectangleOrigin.Text.Split(',');
 
                 Rectangle rectangle = new Rectangle()
                 {
                     Feed = int.Parse(txtFeed.Text),
-                    Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(start[2])),
-                    Width = double.Parse(txtWidthRectangle.Text),
-                    Height = double.Parse(txtHeightRectangle.Text),
+                    Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
+                    Height = double.Parse(txtRectangleSideA.Text),
+                    Width = double.Parse(txtRectangleSideB.Text),
                     SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
                 };
            

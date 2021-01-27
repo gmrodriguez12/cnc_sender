@@ -78,6 +78,9 @@
     <Compile Include="GCodeValidation\Square\SquareOriginIsValid.cs" />
     <Compile Include="GCodeValidation\Square\SquareVerticalSideIsValid.cs" />
     <Compile Include="GCodeValidation\Square\SquareZHeightIsValid.cs" />
+    <Compile Include="GCodeValidation\Triangle\TriangleBaseIsValid.cs" />
+    <Compile Include="GCodeValidation\Triangle\TriangleHeightIsValid.cs" />
+    <Compile Include="GCodeValidation\Triangle\TriangleIsValid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerialPortManager\SerialPortManager.cs" />
   </ItemGroup>
@@ -93,8 +96,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GCodeValidation\Triangle\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

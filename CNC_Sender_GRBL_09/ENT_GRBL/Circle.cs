@@ -42,10 +42,5 @@ namespace ENT_Sender_GRBL
                 return Center.X + Radio;
             }
         }
-
-        private bool ValidateParameters(double cX, double cY, double r)
-        {
-            return ((r <= cX) && (r <= cY));
-        }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Linq;
+using System.Text;
+using BLL_GRBL.GCodeValidation.Circle;
 using ENT_Sender_GRBL;
 
 namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
@@ -19,6 +22,11 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
 
         private StringBuilder GenerateGcode(Circle circle, bool isSimulator)
         {
+            var validation = new CircleIsValid().Validate(circle);
+
+            if (!validation.IsValid)
+                throw new Exception(string.Join("\n", validation.Erros.Select(w => w.Message)));
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GMovement(circle.Start, "G0"));
 

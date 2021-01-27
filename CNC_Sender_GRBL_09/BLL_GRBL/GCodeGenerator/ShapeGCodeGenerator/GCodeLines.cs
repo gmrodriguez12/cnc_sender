@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL_GRBL.GCodeValidation.Line;
 using ENT_Sender_GRBL;
 
 namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
@@ -23,6 +24,11 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
 
         private StringBuilder GenerateGCode(Line line, bool isSimulator)
         {
+            var validation = new LineIsValid().Validate(line);
+
+            if (!validation.IsValid)
+                throw new Exception(string.Join("\n", validation.Erros.Select(w => w.Message)));
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GMovement(line.Start, "G0"));
 
