@@ -44,13 +44,5 @@ namespace BLL_Sender_GRBL.GCodeGenerator.ShapeGCodeGenerator
 
             return sb;
         }
-
-        /*
-         * Example Gcode
-            G0 X2 Y2
-            G1 X2 Y5 F150
-            G0 X0 Y0
-        */
-
     }
 }
