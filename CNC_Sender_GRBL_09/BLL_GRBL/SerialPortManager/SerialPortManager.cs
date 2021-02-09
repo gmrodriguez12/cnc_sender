@@ -11,6 +11,8 @@ namespace BLL_Sender_GRBL.SerialPortManager
     {
         public static SerialPort serial = new SerialPort();
         public static string Properties { get; set; }
+
+        public static StringBuilder PortReader { get; set; }
         public static Grbl09Settings Settings { get; set; }
         public static string[] ListAvailablePorts()
         {
@@ -19,19 +21,29 @@ namespace BLL_Sender_GRBL.SerialPortManager
 
         public static void OpenConnection(string portName)
         {
-            serial.PortName = portName;
-            serial.BaudRate = 115200;
-            serial.DataBits = 8;
-            serial.Parity = Parity.None;
-            serial.StopBits = StopBits.One;
-            serial.Handshake = Handshake.None;
-            serial.NewLine = "\n";
-            serial.WriteTimeout = 2000;
-            serial.ReadTimeout = 2000;
-            serial.DtrEnable = true;
-            serial.RtsEnable = true;
-            serial.DataReceived += new SerialDataReceivedEventHandler(Port_DataReceived);
-            serial.Open();
+            try
+            {
+                serial.PortName = portName;
+                serial.BaudRate = 115200;
+                serial.DataBits = 8;
+                serial.Parity = Parity.None;
+                serial.StopBits = StopBits.One;
+                serial.Handshake = Handshake.None;
+                serial.NewLine = "\n";
+                serial.WriteTimeout = 2000;
+                //serial.ReadTimeout = 2000;
+                serial.DtrEnable = true;
+                serial.RtsEnable = true;
+                serial.DataReceived += new SerialDataReceivedEventHandler(Port_DataReceived);
+                serial.Open();
+
+                serial.DiscardOutBuffer();
+                serial.DiscardInBuffer();
+            }
+            catch(Exception ex)
+            {
+                throw new SerialPortException(ex.Message);
+            }
         }
 
         public static void CloseConnection()
@@ -74,32 +86,15 @@ namespace BLL_Sender_GRBL.SerialPortManager
 
         public static void Port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            Properties = serial.ReadExisting();
 
-            if(Properties != null)            
-                ParseConfig();
+            string data = serial.ReadExisting();
 
+            //parce different data strings
 
-            //while ((serialPort1.IsOpen) && (serialPort1.BytesToRead > 0))
-            //{
-            //    rxString = string.Empty;
-            //    try
-            //    {
-            //        rxString = serialPort1.ReadTo("\r\n");
-            //        this.Invoke(new EventHandler(handleRXData));
-            //        while ((serialPort1.IsOpen)) ;
-            //    }
-            //    catch (Exception exception)
-            //    {
-            //        Console.WriteLine(exception.Message, "can not received data");
+            //Properties = serial.ReadExisting();
+            //if(Properties != null)            
+            //    ParseConfig();
 
-            //    }
-            //}
-        }
-
-        public static string SerialData()
-        {
-            return serial.ReadLine();
         }
         
         private static void ParseConfig()
