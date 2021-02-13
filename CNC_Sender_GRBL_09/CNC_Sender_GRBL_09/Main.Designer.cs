@@ -39,8 +39,7 @@
             this.txtSquareSide = new System.Windows.Forms.TextBox();
             this.btnGenerateSquare = new System.Windows.Forms.Button();
             this.chkSimulateSquare = new System.Windows.Forms.CheckBox();
-            this.txtGCode = new System.Windows.Forms.TextBox();
-            this.btnCutSquare = new System.Windows.Forms.Button();
+            this.txtLog = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtFeed = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             this.btnXright = new System.Windows.Forms.Button();
             this.btnXleft = new System.Windows.Forms.Button();
             this.grpLog = new System.Windows.Forms.GroupBox();
-            this.btnProperties = new System.Windows.Forms.Button();
             this.grpRectangle = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -109,6 +107,8 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.cboShape = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.txtCmd = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.grpSquare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSquare)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -220,40 +220,30 @@
             this.btnGenerateSquare.Name = "btnGenerateSquare";
             this.btnGenerateSquare.Size = new System.Drawing.Size(340, 44);
             this.btnGenerateSquare.TabIndex = 15;
-            this.btnGenerateSquare.Text = "Generate GCode";
+            this.btnGenerateSquare.Text = "Start";
             this.btnGenerateSquare.UseVisualStyleBackColor = true;
             this.btnGenerateSquare.Click += new System.EventHandler(this.BtnGenerateSquare_Click);
             // 
             // chkSimulateSquare
             // 
             this.chkSimulateSquare.AutoSize = true;
-            this.chkSimulateSquare.Location = new System.Drawing.Point(244, 742);
+            this.chkSimulateSquare.Location = new System.Drawing.Point(534, 54);
             this.chkSimulateSquare.Margin = new System.Windows.Forms.Padding(4);
             this.chkSimulateSquare.Name = "chkSimulateSquare";
-            this.chkSimulateSquare.Size = new System.Drawing.Size(116, 29);
+            this.chkSimulateSquare.Size = new System.Drawing.Size(127, 29);
             this.chkSimulateSquare.TabIndex = 22;
-            this.chkSimulateSquare.Text = "Simular";
+            this.chkSimulateSquare.Text = "Simulate";
             this.chkSimulateSquare.UseVisualStyleBackColor = true;
             // 
-            // txtGCode
+            // txtLog
             // 
-            this.txtGCode.Location = new System.Drawing.Point(32, 46);
-            this.txtGCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGCode.Multiline = true;
-            this.txtGCode.Name = "txtGCode";
-            this.txtGCode.Size = new System.Drawing.Size(688, 656);
-            this.txtGCode.TabIndex = 2;
-            // 
-            // btnCutSquare
-            // 
-            this.btnCutSquare.Location = new System.Drawing.Point(32, 729);
-            this.btnCutSquare.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCutSquare.Name = "btnCutSquare";
-            this.btnCutSquare.Size = new System.Drawing.Size(204, 44);
-            this.btnCutSquare.TabIndex = 1;
-            this.btnCutSquare.Text = "Run";
-            this.btnCutSquare.UseVisualStyleBackColor = true;
-            this.btnCutSquare.Click += new System.EventHandler(this.BtnCutSquare_Click);
+            this.txtLog.Location = new System.Drawing.Point(32, 46);
+            this.txtLog.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLog.Size = new System.Drawing.Size(688, 660);
+            this.txtLog.TabIndex = 2;
             // 
             // groupBox2
             // 
@@ -497,10 +487,9 @@
             // 
             // grpLog
             // 
-            this.grpLog.Controls.Add(this.btnProperties);
-            this.grpLog.Controls.Add(this.txtGCode);
-            this.grpLog.Controls.Add(this.chkSimulateSquare);
-            this.grpLog.Controls.Add(this.btnCutSquare);
+            this.grpLog.Controls.Add(this.btnSend);
+            this.grpLog.Controls.Add(this.txtCmd);
+            this.grpLog.Controls.Add(this.txtLog);
             this.grpLog.Location = new System.Drawing.Point(890, 29);
             this.grpLog.Margin = new System.Windows.Forms.Padding(6);
             this.grpLog.Name = "grpLog";
@@ -509,17 +498,6 @@
             this.grpLog.TabIndex = 30;
             this.grpLog.TabStop = false;
             this.grpLog.Text = "Execution Log";
-            // 
-            // btnProperties
-            // 
-            this.btnProperties.Location = new System.Drawing.Point(387, 727);
-            this.btnProperties.Margin = new System.Windows.Forms.Padding(4);
-            this.btnProperties.Name = "btnProperties";
-            this.btnProperties.Size = new System.Drawing.Size(204, 44);
-            this.btnProperties.TabIndex = 23;
-            this.btnProperties.Text = "Properties";
-            this.btnProperties.UseVisualStyleBackColor = true;
-            this.btnProperties.Click += new System.EventHandler(this.BtnProperties_Click);
             // 
             // grpRectangle
             // 
@@ -646,7 +624,7 @@
             this.btnGenerateRectangle.Name = "btnGenerateRectangle";
             this.btnGenerateRectangle.Size = new System.Drawing.Size(338, 44);
             this.btnGenerateRectangle.TabIndex = 20;
-            this.btnGenerateRectangle.Text = "Generate GCode";
+            this.btnGenerateRectangle.Text = "Start";
             this.btnGenerateRectangle.UseVisualStyleBackColor = true;
             this.btnGenerateRectangle.Click += new System.EventHandler(this.btnGenCodeRectangle_Click);
             // 
@@ -664,7 +642,7 @@
             this.grpLine.Margin = new System.Windows.Forms.Padding(6);
             this.grpLine.Name = "grpLine";
             this.grpLine.Padding = new System.Windows.Forms.Padding(6);
-            this.grpLine.Size = new System.Drawing.Size(784, 420);
+            this.grpLine.Size = new System.Drawing.Size(784, 432);
             this.grpLine.TabIndex = 25;
             this.grpLine.TabStop = false;
             this.grpLine.Visible = false;
@@ -745,7 +723,7 @@
             this.btnGenerateLine.Name = "btnGenerateLine";
             this.btnGenerateLine.Size = new System.Drawing.Size(305, 44);
             this.btnGenerateLine.TabIndex = 28;
-            this.btnGenerateLine.Text = "Execute Cutting";
+            this.btnGenerateLine.Text = "Start";
             this.btnGenerateLine.UseVisualStyleBackColor = true;
             this.btnGenerateLine.Click += new System.EventHandler(this.btnGenLineCode_Click);
             // 
@@ -843,7 +821,7 @@
             this.btnGenCircleCode.Name = "btnGenCircleCode";
             this.btnGenCircleCode.Size = new System.Drawing.Size(340, 44);
             this.btnGenCircleCode.TabIndex = 24;
-            this.btnGenCircleCode.Text = "Generate GCode";
+            this.btnGenCircleCode.Text = "Start";
             this.btnGenCircleCode.UseVisualStyleBackColor = true;
             this.btnGenCircleCode.Click += new System.EventHandler(this.btnGenCircleCode_Click);
             // 
@@ -972,7 +950,7 @@
             this.btnGenCodeTriangle.Name = "btnGenCodeTriangle";
             this.btnGenCodeTriangle.Size = new System.Drawing.Size(346, 44);
             this.btnGenCodeTriangle.TabIndex = 33;
-            this.btnGenCodeTriangle.Text = "Run";
+            this.btnGenCodeTriangle.Text = "Start";
             this.btnGenCodeTriangle.UseVisualStyleBackColor = true;
             this.btnGenCodeTriangle.Click += new System.EventHandler(this.btnGenCodeTriangle_Click);
             // 
@@ -980,6 +958,7 @@
             // 
             this.groupBox9.Controls.Add(this.cboShape);
             this.groupBox9.Controls.Add(this.label18);
+            this.groupBox9.Controls.Add(this.chkSimulateSquare);
             this.groupBox9.Controls.Add(this.grpLine);
             this.groupBox9.Controls.Add(this.grpCircle);
             this.groupBox9.Controls.Add(this.grpTriangle);
@@ -1021,11 +1000,32 @@
             this.label18.TabIndex = 21;
             this.label18.Text = "Geometry Shape";
             // 
+            // txtCmd
+            // 
+            this.txtCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCmd.Location = new System.Drawing.Point(32, 736);
+            this.txtCmd.Name = "txtCmd";
+            this.txtCmd.Size = new System.Drawing.Size(566, 38);
+            this.txtCmd.TabIndex = 37;
+            this.txtCmd.Text = "Type your command";
+            this.txtCmd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TxtCmd_MouseClick);
+            // 
+            // btnSend
+            // 
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(617, 734);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(103, 41);
+            this.btnSend.TabIndex = 38;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.BtnSend_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(3154, 1244);
+            this.ClientSize = new System.Drawing.Size(1670, 1244);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.grpLog);
             this.Controls.Add(this.groupBox3);
@@ -1068,8 +1068,7 @@
         private System.Windows.Forms.CheckBox chkSimulateSquare;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSquareSide;
-        private System.Windows.Forms.TextBox txtGCode;
-        private System.Windows.Forms.Button btnCutSquare;
+        private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.Button btnGenerateSquare;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtFeed;
@@ -1122,7 +1121,6 @@
         private System.Windows.Forms.TextBox txtCenterCircle;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtTriangleStart;
-        private System.Windows.Forms.Button btnProperties;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.ComboBox cboShape;
@@ -1144,6 +1142,8 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtCmd;
+        private System.Windows.Forms.Button btnSend;
     }
 }
 

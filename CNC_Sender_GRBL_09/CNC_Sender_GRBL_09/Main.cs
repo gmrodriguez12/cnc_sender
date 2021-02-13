@@ -1,5 +1,4 @@
-﻿using BLL_GRBL.DomainValidation;
-using BLL_Sender_GRBL.GCodeGenerator;
+﻿using BLL_Sender_GRBL.GCodeGenerator;
 using BLL_Sender_GRBL.GCodeGenerator.SimpleMovements;
 using BLL_Sender_GRBL.SerialPortManager;
 using ENT_GRBL.Config;
@@ -9,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CNC_Sender_GRBL_09
@@ -28,7 +28,7 @@ namespace CNC_Sender_GRBL_09
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            cboShape.SelectedIndex = 1;
         }
 
         private void LoadSerialPorts()
@@ -40,17 +40,26 @@ namespace CNC_Sender_GRBL_09
         private void BtnOpen_Click(object sender, EventArgs e)
         {
             try
-            {               
-                SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());             
-                
+            {
+                SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());
+
+                SerialPortManager.ReceiveDataFromGRBLDelegate delegateGrbl = new SerialPortManager.ReceiveDataFromGRBLDelegate(ShowResponse);
+                SerialPortManager.ReceiveDataEvent += delegateGrbl;
+
                 feed = !string.IsNullOrEmpty(txtFeed.Text) ? double.Parse(txtFeed.Text) : 500;
-                lblStatus.Text = "Connection Opened";
+                lblStatus.Text = "Idle";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 lblStatus.Text = "Error";
             }
+        }
+
+        private void ShowResponse(string data)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            txtLog.AppendText(data);
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -62,7 +71,7 @@ namespace CNC_Sender_GRBL_09
         {
             GCodeHome home = new GCodeHome();
             string gCode = home.SetHomePoint();
-            txtGCode.Text = gCode;
+            txtLog.Text = gCode;
 
             SerialPortManager.ExecuteCommand(gCode);
         }
@@ -71,7 +80,7 @@ namespace CNC_Sender_GRBL_09
         {
             GCodeHome home = new GCodeHome();
             string gCode = home.ReturnToHome(SAFE_VERTICAL_HEIGHT_CM);
-            txtGCode.Text = gCode;
+            txtLog.Text = gCode;
 
             SerialPortManager.ExecuteCommand(gCode);
         }
@@ -93,7 +102,7 @@ namespace CNC_Sender_GRBL_09
 
                 GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square, simulate);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -105,13 +114,13 @@ namespace CNC_Sender_GRBL_09
             IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
             StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
 
-            txtGCode.Text = gCodeCmd.ToString();
+            txtLog.Text = gCodeCmd.ToString();
 
             bufferCode = new StringBuilder();
             bufferCode = gCodeCmd;
 
-            //if(gCodeCmd != null)
-                //SerialPortManager.ExecuteCommands(gCodeCmd);
+            if(gCodeCmd != null)
+                SerialPortManager.ExecuteCommands(gCodeCmd);
         }
 
         private void BtnCutSquare_Click(object sender, EventArgs e)
@@ -121,9 +130,9 @@ namespace CNC_Sender_GRBL_09
 
         private void btnXleft_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(txtDistance.Text)* -1;
+            double distance = double.Parse(txtDistance.Text) * -1;
             StringBuilder sb = simpleMovements.MoveX(distance, feed);
-            txtGCode.Text = sb.ToString();
+            txtLog.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -132,7 +141,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text);
             StringBuilder sb = simpleMovements.MoveX(distance, feed);
-            txtGCode.Text = sb.ToString();
+            txtLog.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -141,7 +150,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text) * -1;
             StringBuilder sb = simpleMovements.MoveY(distance, feed);
-            txtGCode.Text = sb.ToString();
+            txtLog.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -150,7 +159,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text);
             StringBuilder sb = simpleMovements.MoveY(distance, feed);
-            txtGCode.Text = sb.ToString();
+            txtLog.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -159,7 +168,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text);
             StringBuilder sb = simpleMovements.MoveZ(distance, feed);
-            txtGCode.Text = sb.ToString();
+            txtLog.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -168,7 +177,7 @@ namespace CNC_Sender_GRBL_09
         {
             double distance = double.Parse(txtDistance.Text) * -1;
             StringBuilder sb = simpleMovements.MoveZ(distance, feed);
-            txtGCode.Text = sb.ToString();
+            txtLog.Text = sb.ToString();
 
             SerialPortManager.ExecuteCommands(sb);
         }
@@ -207,7 +216,7 @@ namespace CNC_Sender_GRBL_09
 
                 GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle, simulate);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -231,11 +240,11 @@ namespace CNC_Sender_GRBL_09
 
                 GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Line, line, simulate);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-}
+        }
 
         private void btnGenCodeRectangle_Click(object sender, EventArgs e)
         {
@@ -252,10 +261,10 @@ namespace CNC_Sender_GRBL_09
                     Width = double.Parse(txtRectangleSideB.Text),
                     SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
                 };
-           
+
                 GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle, simulate);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -264,7 +273,7 @@ namespace CNC_Sender_GRBL_09
         private void BtnProperties_Click(object sender, EventArgs e)
         {
             SerialPortManager.serial.WriteLine("$$");
-            txtGCode.Text = SerialPortManager.Properties;
+            txtLog.Text = SerialPortManager.Properties;
         }
 
         private void CboShape_SelectedIndexChanged(object sender, EventArgs e)
@@ -275,15 +284,16 @@ namespace CNC_Sender_GRBL_09
             grpTriangle.Visible = selectedShape == 2;
             grpCircle.Visible = selectedShape == 3;
             grpLine.Visible = selectedShape == 4;
+         }
 
+        private void TxtCmd_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtCmd.Text = string.Empty;
+        }
 
-            /*
-             Square
-             Rectangle
-             Triangle             
-             Circle
-             Line
-             */
+        private void BtnSend_Click(object sender, EventArgs e)
+        {
+            SerialPortManager.ExecuteCommand(txtCmd.Text);
         }
     }
-} 
+}

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO.Ports;
 using System.Text;
 using ENT_GRBL.Config;
@@ -84,17 +83,13 @@ namespace BLL_Sender_GRBL.SerialPortManager
             ExecuteCommands(setLines);
         }
 
+        public delegate void ReceiveDataFromGRBLDelegate(string data);
+        public static event ReceiveDataFromGRBLDelegate ReceiveDataEvent;
+
         public static void Port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-
             string data = serial.ReadExisting();
-
-            //parce different data strings
-
-            //Properties = serial.ReadExisting();
-            //if(Properties != null)            
-            //    ParseConfig();
-
+            ReceiveDataEvent(data);
         }
         
         private static void ParseConfig()
