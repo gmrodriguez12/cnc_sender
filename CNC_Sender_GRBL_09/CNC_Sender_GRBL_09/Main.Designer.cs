@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.grpSquare = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
             this.btnGenerateSquare = new System.Windows.Forms.Button();
             this.chkSimulateSquare = new System.Windows.Forms.CheckBox();
             this.txtLog = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpConnection = new System.Windows.Forms.GroupBox();
             this.txtFeed = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHoming = new System.Windows.Forms.Button();
@@ -51,7 +52,7 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grpAxesMoves = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnZDown = new System.Windows.Forms.Button();
             this.btnZUp = new System.Windows.Forms.Button();
@@ -62,6 +63,8 @@
             this.btnXright = new System.Windows.Forms.Button();
             this.btnXleft = new System.Windows.Forms.Button();
             this.grpLog = new System.Windows.Forms.GroupBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txtCmd = new System.Windows.Forms.TextBox();
             this.grpRectangle = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -104,15 +107,21 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
             this.btnGenCodeTriangle = new System.Windows.Forms.Button();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.grpTraceConfig = new System.Windows.Forms.GroupBox();
             this.cboShape = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtCmd = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gRBLSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calibrattToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnStop = new System.Windows.Forms.Button();
             this.grpSquare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSquare)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grpConnection.SuspendLayout();
+            this.grpAxesMoves.SuspendLayout();
             this.grpLog.SuspendLayout();
             this.grpRectangle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRectangle)).BeginInit();
@@ -122,7 +131,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picCicrle)).BeginInit();
             this.grpTriangle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTriangle)).BeginInit();
-            this.groupBox9.SuspendLayout();
+            this.grpTraceConfig.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpSquare
@@ -245,31 +255,32 @@
             this.txtLog.Size = new System.Drawing.Size(688, 660);
             this.txtLog.TabIndex = 2;
             // 
-            // groupBox2
+            // grpConnection
             // 
-            this.groupBox2.Controls.Add(this.txtFeed);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.btnHoming);
-            this.groupBox2.Controls.Add(this.btnSetHome);
-            this.groupBox2.Controls.Add(this.btnOpen);
-            this.groupBox2.Controls.Add(this.btnClose);
-            this.groupBox2.Controls.Add(this.cboCom);
-            this.groupBox2.Controls.Add(this.lblStatus);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 29);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(554, 227);
-            this.groupBox2.TabIndex = 27;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Connection Control";
-            this.groupBox2.UseCompatibleTextRendering = true;
+            this.grpConnection.Controls.Add(this.btnStop);
+            this.grpConnection.Controls.Add(this.txtFeed);
+            this.grpConnection.Controls.Add(this.label2);
+            this.grpConnection.Controls.Add(this.btnHoming);
+            this.grpConnection.Controls.Add(this.btnSetHome);
+            this.grpConnection.Controls.Add(this.btnOpen);
+            this.grpConnection.Controls.Add(this.btnClose);
+            this.grpConnection.Controls.Add(this.cboCom);
+            this.grpConnection.Controls.Add(this.lblStatus);
+            this.grpConnection.Controls.Add(this.label3);
+            this.grpConnection.Controls.Add(this.label4);
+            this.grpConnection.Location = new System.Drawing.Point(12, 57);
+            this.grpConnection.Margin = new System.Windows.Forms.Padding(4);
+            this.grpConnection.Name = "grpConnection";
+            this.grpConnection.Padding = new System.Windows.Forms.Padding(4);
+            this.grpConnection.Size = new System.Drawing.Size(554, 221);
+            this.grpConnection.TabIndex = 27;
+            this.grpConnection.TabStop = false;
+            this.grpConnection.Text = "Connection Control";
+            this.grpConnection.UseCompatibleTextRendering = true;
             // 
             // txtFeed
             // 
-            this.txtFeed.Location = new System.Drawing.Point(236, 171);
+            this.txtFeed.Location = new System.Drawing.Point(236, 166);
             this.txtFeed.Margin = new System.Windows.Forms.Padding(4);
             this.txtFeed.Name = "txtFeed";
             this.txtFeed.Size = new System.Drawing.Size(94, 31);
@@ -279,7 +290,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(148, 177);
+            this.label2.Location = new System.Drawing.Point(148, 169);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 25);
@@ -338,6 +349,7 @@
             this.cboCom.Name = "cboCom";
             this.cboCom.Size = new System.Drawing.Size(148, 33);
             this.cboCom.TabIndex = 0;
+            this.cboCom.SelectedIndexChanged += new System.EventHandler(this.CboCom_SelectedIndexChanged);
             // 
             // lblStatus
             // 
@@ -369,26 +381,26 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Status";
             // 
-            // groupBox3
+            // grpAxesMoves
             // 
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.btnZDown);
-            this.groupBox3.Controls.Add(this.btnZUp);
-            this.groupBox3.Controls.Add(this.btnYrigth);
-            this.groupBox3.Controls.Add(this.btnYleft);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.txtDistance);
-            this.groupBox3.Controls.Add(this.btnXright);
-            this.groupBox3.Controls.Add(this.btnXleft);
-            this.groupBox3.Location = new System.Drawing.Point(574, 29);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(306, 230);
-            this.groupBox3.TabIndex = 29;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Axis Movements";
-            this.groupBox3.UseCompatibleTextRendering = true;
+            this.grpAxesMoves.Controls.Add(this.label17);
+            this.grpAxesMoves.Controls.Add(this.btnZDown);
+            this.grpAxesMoves.Controls.Add(this.btnZUp);
+            this.grpAxesMoves.Controls.Add(this.btnYrigth);
+            this.grpAxesMoves.Controls.Add(this.btnYleft);
+            this.grpAxesMoves.Controls.Add(this.label6);
+            this.grpAxesMoves.Controls.Add(this.txtDistance);
+            this.grpAxesMoves.Controls.Add(this.btnXright);
+            this.grpAxesMoves.Controls.Add(this.btnXleft);
+            this.grpAxesMoves.Location = new System.Drawing.Point(574, 57);
+            this.grpAxesMoves.Margin = new System.Windows.Forms.Padding(4);
+            this.grpAxesMoves.Name = "grpAxesMoves";
+            this.grpAxesMoves.Padding = new System.Windows.Forms.Padding(4);
+            this.grpAxesMoves.Size = new System.Drawing.Size(306, 221);
+            this.grpAxesMoves.TabIndex = 29;
+            this.grpAxesMoves.TabStop = false;
+            this.grpAxesMoves.Text = "Axes Moves";
+            this.grpAxesMoves.UseCompatibleTextRendering = true;
             // 
             // label17
             // 
@@ -490,7 +502,7 @@
             this.grpLog.Controls.Add(this.btnSend);
             this.grpLog.Controls.Add(this.txtCmd);
             this.grpLog.Controls.Add(this.txtLog);
-            this.grpLog.Location = new System.Drawing.Point(890, 29);
+            this.grpLog.Location = new System.Drawing.Point(890, 57);
             this.grpLog.Margin = new System.Windows.Forms.Padding(6);
             this.grpLog.Name = "grpLog";
             this.grpLog.Padding = new System.Windows.Forms.Padding(6);
@@ -498,6 +510,27 @@
             this.grpLog.TabIndex = 30;
             this.grpLog.TabStop = false;
             this.grpLog.Text = "Execution Log";
+            // 
+            // btnSend
+            // 
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(617, 734);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(103, 41);
+            this.btnSend.TabIndex = 38;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.BtnSend_Click);
+            // 
+            // txtCmd
+            // 
+            this.txtCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCmd.Location = new System.Drawing.Point(32, 736);
+            this.txtCmd.Name = "txtCmd";
+            this.txtCmd.Size = new System.Drawing.Size(566, 38);
+            this.txtCmd.TabIndex = 37;
+            this.txtCmd.Text = "Type your command";
+            this.txtCmd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TxtCmd_MouseClick);
             // 
             // grpRectangle
             // 
@@ -954,24 +987,24 @@
             this.btnGenCodeTriangle.UseVisualStyleBackColor = true;
             this.btnGenCodeTriangle.Click += new System.EventHandler(this.btnGenCodeTriangle_Click);
             // 
-            // groupBox9
+            // grpTraceConfig
             // 
-            this.groupBox9.Controls.Add(this.cboShape);
-            this.groupBox9.Controls.Add(this.label18);
-            this.groupBox9.Controls.Add(this.chkSimulateSquare);
-            this.groupBox9.Controls.Add(this.grpLine);
-            this.groupBox9.Controls.Add(this.grpCircle);
-            this.groupBox9.Controls.Add(this.grpTriangle);
-            this.groupBox9.Controls.Add(this.grpSquare);
-            this.groupBox9.Controls.Add(this.grpRectangle);
-            this.groupBox9.Location = new System.Drawing.Point(15, 269);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(6);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox9.Size = new System.Drawing.Size(865, 569);
-            this.groupBox9.TabIndex = 35;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Select and Config Geometry Shape";
+            this.grpTraceConfig.Controls.Add(this.cboShape);
+            this.grpTraceConfig.Controls.Add(this.label18);
+            this.grpTraceConfig.Controls.Add(this.chkSimulateSquare);
+            this.grpTraceConfig.Controls.Add(this.grpLine);
+            this.grpTraceConfig.Controls.Add(this.grpCircle);
+            this.grpTraceConfig.Controls.Add(this.grpTriangle);
+            this.grpTraceConfig.Controls.Add(this.grpSquare);
+            this.grpTraceConfig.Controls.Add(this.grpRectangle);
+            this.grpTraceConfig.Location = new System.Drawing.Point(15, 288);
+            this.grpTraceConfig.Margin = new System.Windows.Forms.Padding(6);
+            this.grpTraceConfig.Name = "grpTraceConfig";
+            this.grpTraceConfig.Padding = new System.Windows.Forms.Padding(6);
+            this.grpTraceConfig.Size = new System.Drawing.Size(865, 578);
+            this.grpTraceConfig.TabIndex = 35;
+            this.grpTraceConfig.TabStop = false;
+            this.grpTraceConfig.Text = "Select and Config Geometry Shape";
             // 
             // cboShape
             // 
@@ -1000,36 +1033,81 @@
             this.label18.TabIndex = 21;
             this.label18.Text = "Geometry Shape";
             // 
-            // txtCmd
+            // menuStrip1
             // 
-            this.txtCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCmd.Location = new System.Drawing.Point(32, 736);
-            this.txtCmd.Name = "txtCmd";
-            this.txtCmd.Size = new System.Drawing.Size(566, 38);
-            this.txtCmd.TabIndex = 37;
-            this.txtCmd.Text = "Type your command";
-            this.txtCmd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TxtCmd_MouseClick);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1670, 40);
+            this.menuStrip1.TabIndex = 36;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnSend
+            // settingsToolStripMenuItem
             // 
-            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(617, 734);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(103, 41);
-            this.btnSend.TabIndex = 38;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.BtnSend_Click);
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gRBLSettingsToolStripMenuItem,
+            this.calibrattToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(121, 36);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // gRBLSettingsToolStripMenuItem
+            // 
+            this.gRBLSettingsToolStripMenuItem.Name = "gRBLSettingsToolStripMenuItem";
+            this.gRBLSettingsToolStripMenuItem.Size = new System.Drawing.Size(299, 44);
+            this.gRBLSettingsToolStripMenuItem.Text = "GRBL Settings";
+            // 
+            // calibrattToolStripMenuItem
+            // 
+            this.calibrattToolStripMenuItem.Name = "calibrattToolStripMenuItem";
+            this.calibrattToolStripMenuItem.Size = new System.Drawing.Size(299, 44);
+            this.calibrattToolStripMenuItem.Text = "Calibrate Axes";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // aboutSimpleCNCSenderForGRBL09ToolStripMenuItem
+            // 
+            this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem.Name = "aboutSimpleCNCSenderForGRBL09ToolStripMenuItem";
+            this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem.Size = new System.Drawing.Size(568, 44);
+            this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem.Text = "About Simple CNC Sender for GRBL 0.9";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnStop
+            // 
+            this.btnStop.ForeColor = System.Drawing.Color.Red;
+            this.btnStop.Location = new System.Drawing.Point(404, 154);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(124, 44);
+            this.btnStop.TabIndex = 25;
+            this.btnStop.Text = "STOP";
+            this.btnStop.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1670, 1244);
-            this.Controls.Add(this.groupBox9);
+            this.ClientSize = new System.Drawing.Size(1670, 884);
+            this.Controls.Add(this.grpTraceConfig);
             this.Controls.Add(this.grpLog);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grpAxesMoves);
+            this.Controls.Add(this.grpConnection);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.Text = "Simple CNC Sender for GRBL 0.9 (Beta 1.0)";
@@ -1038,10 +1116,10 @@
             this.grpSquare.ResumeLayout(false);
             this.grpSquare.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSquare)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpConnection.ResumeLayout(false);
+            this.grpConnection.PerformLayout();
+            this.grpAxesMoves.ResumeLayout(false);
+            this.grpAxesMoves.PerformLayout();
             this.grpLog.ResumeLayout(false);
             this.grpLog.PerformLayout();
             this.grpRectangle.ResumeLayout(false);
@@ -1056,9 +1134,12 @@
             this.grpTriangle.ResumeLayout(false);
             this.grpTriangle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTriangle)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.grpTraceConfig.ResumeLayout(false);
+            this.grpTraceConfig.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1070,7 +1151,7 @@
         private System.Windows.Forms.TextBox txtSquareSide;
         private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.Button btnGenerateSquare;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpConnection;
         private System.Windows.Forms.TextBox txtFeed;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHoming;
@@ -1081,7 +1162,7 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grpAxesMoves;
         private System.Windows.Forms.Button btnZDown;
         private System.Windows.Forms.Button btnZUp;
         private System.Windows.Forms.Button btnYrigth;
@@ -1122,7 +1203,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtTriangleStart;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox grpTraceConfig;
         private System.Windows.Forms.ComboBox cboShape;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox picTriangle;
@@ -1144,6 +1225,14 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtCmd;
         private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gRBLSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calibrattToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutSimpleCNCSenderForGRBL09ToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

@@ -16,5 +16,17 @@ namespace ENT_Sender_GRBL.Enum
             Circle,
             TriangleRectangle
         }
+
+        public enum SystemEvents : short
+        {
+            Load,
+            Open,
+            Run,
+            PortSelected,
+            Close,
+            Finish,
+            Stop,
+            ErrorMachine
+        }
     }
 }

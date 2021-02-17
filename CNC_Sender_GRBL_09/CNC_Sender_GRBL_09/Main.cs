@@ -10,6 +10,7 @@ using System.IO.Ports;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using static ENT_Sender_GRBL.Enum.EnumHelpers;
 
 namespace CNC_Sender_GRBL_09
 {
@@ -29,6 +30,8 @@ namespace CNC_Sender_GRBL_09
         private void Form1_Load(object sender, EventArgs e)
         {
             cboShape.SelectedIndex = 1;
+            grpAxesMoves.Enabled = false;
+            ManageInputs(SystemEvents.Load);
         }
 
         private void LoadSerialPorts()
@@ -42,12 +45,12 @@ namespace CNC_Sender_GRBL_09
             try
             {
                 SerialPortManager.OpenConnection(cboCom.SelectedItem.ToString());
-
                 SerialPortManager.ReceiveDataFromGRBLDelegate delegateGrbl = new SerialPortManager.ReceiveDataFromGRBLDelegate(ShowResponse);
                 SerialPortManager.ReceiveDataEvent += delegateGrbl;
 
                 feed = !string.IsNullOrEmpty(txtFeed.Text) ? double.Parse(txtFeed.Text) : 500;
                 lblStatus.Text = "Idle";
+                ManageInputs(SystemEvents.Open);
             }
             catch (Exception ex)
             {
@@ -56,15 +59,10 @@ namespace CNC_Sender_GRBL_09
             }
         }
 
-        private void ShowResponse(string data)
-        {
-            CheckForIllegalCrossThreadCalls = false;
-            txtLog.AppendText(data);
-        }
-
         private void BtnClose_Click(object sender, EventArgs e)
         {
             SerialPortManager.CloseConnection();
+            ManageInputs(SystemEvents.Close);
         }
 
         private void BtnSetHome_Click(object sender, EventArgs e)
@@ -106,21 +104,6 @@ namespace CNC_Sender_GRBL_09
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void GenerateShapeCode(short typeGeometric, Geometric shape, bool simulate)
-        {
-            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
-            IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
-            StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
-
-            txtLog.Text = gCodeCmd.ToString();
-
-            bufferCode = new StringBuilder();
-            bufferCode = gCodeCmd;
-
-            if(gCodeCmd != null)
-                SerialPortManager.ExecuteCommands(gCodeCmd);
         }
 
         private void BtnCutSquare_Click(object sender, EventArgs e)
@@ -293,7 +276,110 @@ namespace CNC_Sender_GRBL_09
 
         private void BtnSend_Click(object sender, EventArgs e)
         {
+            ManageInputs(SystemEvents.Run);
             SerialPortManager.ExecuteCommand(txtCmd.Text);
         }
+
+        private void CboCom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ManageInputs(SystemEvents.PortSelected);
+        }
+
+        private void ShowResponse(string data)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            txtLog.AppendText(data);
+        }
+
+        private void GenerateShapeCode(short typeGeometric, Geometric shape, bool simulate)
+        {
+            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
+            IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
+            StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
+
+            txtLog.Text = gCodeCmd.ToString();
+
+            bufferCode = new StringBuilder();
+            bufferCode = gCodeCmd;
+
+            if (gCodeCmd != null)
+            {
+                ManageInputs(SystemEvents.Run);
+                SerialPortManager.ExecuteCommands(gCodeCmd);
+            }
+        }
+
+        #region Controls Enabled/Disabled
+        private void ManageInputs(SystemEvents eventSystem)
+        {
+            switch (eventSystem)
+            {
+                case SystemEvents.Load:
+                    LoadCloseEvent();
+                    break;
+                case SystemEvents.Close:
+                    LoadCloseEvent();
+                    break;
+                case SystemEvents.PortSelected:
+                    PortSelectedEvent();
+                    break;
+                case SystemEvents.Open:
+                    OpenFinishEvent();
+                    break;
+                case SystemEvents.Finish:
+                    OpenFinishEvent();
+                    break;
+                case SystemEvents.Stop:
+                    OpenFinishEvent();
+                    break;
+                case SystemEvents.ErrorMachine:
+                    OpenFinishEvent();
+                    break;
+                case SystemEvents.Run:
+                    RunEvent();
+                    break;
+            }
+        }
+
+        private void RunEvent()
+        {
+            grpAxesMoves.Enabled = false;
+            grpLog.Enabled = false;
+            grpTraceConfig.Enabled = false;
+            txtFeed.Enabled = false;
+            btnHoming.Enabled = false;
+            btnStop.Enabled = false;
+        }
+
+        private void OpenFinishEvent()
+        {
+            grpAxesMoves.Enabled = true;
+            grpLog.Enabled = true;
+            grpTraceConfig.Enabled = true;
+            btnClose.Enabled = true;
+            txtFeed.Enabled = true;
+            btnHoming.Enabled = true;
+            btnSetHome.Enabled = true;
+            btnStop.Visible = false;
+        }
+
+        private void PortSelectedEvent()
+        {
+            btnOpen.Enabled = true;
+        }
+
+        private void LoadCloseEvent()
+        {
+            grpAxesMoves.Enabled = false;
+            grpLog.Enabled = false;
+            grpTraceConfig.Enabled = false;
+            btnClose.Enabled = false;
+            txtFeed.Enabled = false;
+            btnHoming.Enabled = false;
+            btnSetHome.Enabled = false;
+            btnOpen.Enabled = false;
+            btnStop.Visible = false;
+        }
+        #endregion
     }
 }
