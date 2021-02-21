@@ -42,6 +42,7 @@
             this.chkSimulateSquare = new System.Windows.Forms.CheckBox();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.grpConnection = new System.Windows.Forms.GroupBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.txtFeed = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHoming = new System.Windows.Forms.Button();
@@ -103,9 +104,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtTriangleStart = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtTriangleWidth = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtTriangleHeight = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTriangleBase = new System.Windows.Forms.TextBox();
             this.btnGenCodeTriangle = new System.Windows.Forms.Button();
             this.grpTraceConfig = new System.Windows.Forms.GroupBox();
             this.cboShape = new System.Windows.Forms.ComboBox();
@@ -117,7 +118,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnStop = new System.Windows.Forms.Button();
             this.grpSquare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSquare)).BeginInit();
             this.grpConnection.SuspendLayout();
@@ -277,6 +277,17 @@
             this.grpConnection.TabStop = false;
             this.grpConnection.Text = "Connection Control";
             this.grpConnection.UseCompatibleTextRendering = true;
+            // 
+            // btnStop
+            // 
+            this.btnStop.ForeColor = System.Drawing.Color.Red;
+            this.btnStop.Location = new System.Drawing.Point(404, 154);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(124, 44);
+            this.btnStop.TabIndex = 25;
+            this.btnStop.Text = "STOP";
+            this.btnStop.UseVisualStyleBackColor = true;
             // 
             // txtFeed
             // 
@@ -867,9 +878,9 @@
             this.grpTriangle.Controls.Add(this.label16);
             this.grpTriangle.Controls.Add(this.txtTriangleStart);
             this.grpTriangle.Controls.Add(this.label9);
-            this.grpTriangle.Controls.Add(this.txtTriangleWidth);
-            this.grpTriangle.Controls.Add(this.label10);
             this.grpTriangle.Controls.Add(this.txtTriangleHeight);
+            this.grpTriangle.Controls.Add(this.label10);
+            this.grpTriangle.Controls.Add(this.txtTriangleBase);
             this.grpTriangle.Controls.Add(this.btnGenCodeTriangle);
             this.grpTriangle.Location = new System.Drawing.Point(40, 113);
             this.grpTriangle.Margin = new System.Windows.Forms.Padding(6);
@@ -950,13 +961,13 @@
             this.label9.TabIndex = 31;
             this.label9.Text = "Heigh (h)";
             // 
-            // txtTriangleWidth
+            // txtTriangleHeight
             // 
-            this.txtTriangleWidth.Location = new System.Drawing.Point(161, 229);
-            this.txtTriangleWidth.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTriangleWidth.Name = "txtTriangleWidth";
-            this.txtTriangleWidth.Size = new System.Drawing.Size(108, 31);
-            this.txtTriangleWidth.TabIndex = 31;
+            this.txtTriangleHeight.Location = new System.Drawing.Point(161, 229);
+            this.txtTriangleHeight.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTriangleHeight.Name = "txtTriangleHeight";
+            this.txtTriangleHeight.Size = new System.Drawing.Size(108, 31);
+            this.txtTriangleHeight.TabIndex = 31;
             // 
             // label10
             // 
@@ -968,13 +979,13 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "Base (b)";
             // 
-            // txtTriangleHeight
+            // txtTriangleBase
             // 
-            this.txtTriangleHeight.Location = new System.Drawing.Point(161, 177);
-            this.txtTriangleHeight.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTriangleHeight.Name = "txtTriangleHeight";
-            this.txtTriangleHeight.Size = new System.Drawing.Size(108, 31);
-            this.txtTriangleHeight.TabIndex = 30;
+            this.txtTriangleBase.Location = new System.Drawing.Point(161, 177);
+            this.txtTriangleBase.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTriangleBase.Name = "txtTriangleBase";
+            this.txtTriangleBase.Size = new System.Drawing.Size(108, 31);
+            this.txtTriangleBase.TabIndex = 30;
             // 
             // btnGenCodeTriangle
             // 
@@ -992,11 +1003,11 @@
             this.grpTraceConfig.Controls.Add(this.cboShape);
             this.grpTraceConfig.Controls.Add(this.label18);
             this.grpTraceConfig.Controls.Add(this.chkSimulateSquare);
-            this.grpTraceConfig.Controls.Add(this.grpLine);
-            this.grpTraceConfig.Controls.Add(this.grpCircle);
             this.grpTraceConfig.Controls.Add(this.grpTriangle);
             this.grpTraceConfig.Controls.Add(this.grpSquare);
             this.grpTraceConfig.Controls.Add(this.grpRectangle);
+            this.grpTraceConfig.Controls.Add(this.grpLine);
+            this.grpTraceConfig.Controls.Add(this.grpCircle);
             this.grpTraceConfig.Location = new System.Drawing.Point(15, 288);
             this.grpTraceConfig.Margin = new System.Windows.Forms.Padding(6);
             this.grpTraceConfig.Name = "grpTraceConfig";
@@ -1035,13 +1046,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1670, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1674, 40);
             this.menuStrip1.TabIndex = 36;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1086,22 +1098,11 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btnStop
-            // 
-            this.btnStop.ForeColor = System.Drawing.Color.Red;
-            this.btnStop.Location = new System.Drawing.Point(404, 154);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(124, 44);
-            this.btnStop.TabIndex = 25;
-            this.btnStop.Text = "STOP";
-            this.btnStop.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1670, 884);
+            this.ClientSize = new System.Drawing.Size(1674, 884);
             this.Controls.Add(this.grpTraceConfig);
             this.Controls.Add(this.grpLog);
             this.Controls.Add(this.grpAxesMoves);
@@ -1109,9 +1110,10 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simple CNC Sender for GRBL 0.9 (Beta 1.0)";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpSquare.ResumeLayout(false);
             this.grpSquare.PerformLayout();
@@ -1185,9 +1187,9 @@
         private System.Windows.Forms.TextBox txtRectangleSideA;
         private System.Windows.Forms.Button btnGenerateRectangle;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtTriangleWidth;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTriangleHeight;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtTriangleBase;
         private System.Windows.Forms.Button btnGenCodeTriangle;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtLinePointB;

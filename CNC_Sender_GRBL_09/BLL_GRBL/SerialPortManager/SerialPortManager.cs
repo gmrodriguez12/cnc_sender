@@ -10,7 +10,6 @@ namespace BLL_Sender_GRBL.SerialPortManager
     {
         public static SerialPort serial = new SerialPort();
         public static string Properties { get; set; }
-
         public static StringBuilder PortReader { get; set; }
         public static Grbl09Settings Settings { get; set; }
         public static string[] ListAvailablePorts()

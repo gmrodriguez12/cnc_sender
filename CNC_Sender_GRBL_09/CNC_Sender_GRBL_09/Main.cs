@@ -17,7 +17,9 @@ namespace CNC_Sender_GRBL_09
     public partial class Main : Form
     {
         const int SAFE_VERTICAL_HEIGHT_CM = 10;
-        StringBuilder bufferCode = new StringBuilder();
+        //StringBuilder bufferCode = new StringBuilder();
+        List<string> grblCode = new List<string>();
+        int numberExpectedRespones = 0;
         GCodeSimpleMovements simpleMovements = null;
         double feed = 0;
 
@@ -33,6 +35,8 @@ namespace CNC_Sender_GRBL_09
             grpAxesMoves.Enabled = false;
             ManageInputs(SystemEvents.Load);
         }
+
+        #region Control Machine
 
         private void LoadSerialPorts()
         {
@@ -83,34 +87,37 @@ namespace CNC_Sender_GRBL_09
             SerialPortManager.ExecuteCommand(gCode);
         }
 
-        private void BtnGenerateSquare_Click(object sender, EventArgs e)
+        private void CboCom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            ManageInputs(SystemEvents.PortSelected);
+        }
+
+        private void ShowResponse(string data)
+        {
+            CheckForIllegalCrossThreadCalls = false;
+            txtLog.AppendText(data);
+
+            if (data.Contains("ok"))
             {
-                bool simulate = chkSimulateSquare.Checked;
-                string[] points = txtSquareOrigin.Text.Split(',');
-
-                Square square = new Square()
-                {
-                    Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
-                    Feed = int.Parse(txtFeed.Text),
-                    SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
-                    Side = double.Parse(txtSquareSide.Text)
-                };
-
-                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square, simulate);
+                numberExpectedRespones = (numberExpectedRespones - data.Split('\n').Length-1);
             }
-            catch (Exception ex)
+            else if (data.Contains("error"))
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //pending implement solution to show in red the affected line.
+                txtLog.AppendText("Execution end with error");
+                numberExpectedRespones = (numberExpectedRespones - data.Split('\n').Length-1);
+            }
+            
+            if(numberExpectedRespones <= 0)
+            {
+                //txtLog.AppendText("Execution end success\n");
+                ManageInputs(SystemEvents.Finish);
             }
         }
 
-        private void BtnCutSquare_Click(object sender, EventArgs e)
-        {
-            SerialPortManager.ExecuteCommands(bufferCode);
-        }
+        #endregion
 
+        #region Axis movement
         private void btnXleft_Click(object sender, EventArgs e)
         {
             double distance = double.Parse(txtDistance.Text) * -1;
@@ -165,21 +172,24 @@ namespace CNC_Sender_GRBL_09
             SerialPortManager.ExecuteCommands(sb);
         }
 
+        #endregion
+
+        #region Events for cutting geometric shapes
         private void btnGenCodeTriangle_Click(object sender, EventArgs e)
         {
             bool simulate = chkSimulateSquare.Checked;
-            string[] points = txtTriangleStart.Text.Split(',');
+            string[] start = txtRectangleOrigin.Text.Split(',');
 
             TriangleRectangle triangle = new TriangleRectangle()
             {
-                Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : double.Parse(points[2])),
+                Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
                 Feed = int.Parse(txtFeed.Text),
                 SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
-                Lenght = double.Parse(txtTriangleWidth.Text),
+                Base = double.Parse(txtTriangleBase.Text),
                 Height = double.Parse(txtTriangleHeight.Text)
             };
 
-            GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.TriangleRectangle, triangle, simulate);
+            GenerateShapeCode((short)TypeGeometric.TriangleRectangle, triangle, simulate);
         }
 
         private void btnGenCircleCode_Click(object sender, EventArgs e)
@@ -197,7 +207,7 @@ namespace CNC_Sender_GRBL_09
                     Radio = double.Parse(txtRadius.Text)
                 };
 
-                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Circle, circle, simulate);
+                GenerateShapeCode((short)TypeGeometric.Circle, circle, simulate);
             }
             catch (Exception ex)
             {
@@ -221,7 +231,7 @@ namespace CNC_Sender_GRBL_09
                     SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
                 };
 
-                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Line, line, simulate);
+                GenerateShapeCode((short)TypeGeometric.Line, line, simulate);
             }
             catch (Exception ex)
             {
@@ -245,7 +255,7 @@ namespace CNC_Sender_GRBL_09
                     SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM
                 };
 
-                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Rectangle, rectangle, simulate);
+                GenerateShapeCode((short)TypeGeometric.Rectangle, rectangle, simulate);
             }
             catch (Exception ex)
             {
@@ -253,10 +263,27 @@ namespace CNC_Sender_GRBL_09
             }
         }
 
-        private void BtnProperties_Click(object sender, EventArgs e)
+        private void BtnGenerateSquare_Click(object sender, EventArgs e)
         {
-            SerialPortManager.serial.WriteLine("$$");
-            txtLog.Text = SerialPortManager.Properties;
+            try
+            {
+                bool simulate = chkSimulateSquare.Checked;
+                string[] points = txtSquareOrigin.Text.Split(',');
+
+                Square square = new Square()
+                {
+                    Start = new Point(double.Parse(points[0]), double.Parse(points[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
+                    Feed = int.Parse(txtFeed.Text),
+                    SafetyHeightZ = SAFE_VERTICAL_HEIGHT_CM,
+                    Side = double.Parse(txtSquareSide.Text)
+                };
+
+                GenerateShapeCode((short)ENT_Sender_GRBL.Enum.EnumHelpers.TypeGeometric.Square, square, simulate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CboShape_SelectedIndexChanged(object sender, EventArgs e)
@@ -267,8 +294,33 @@ namespace CNC_Sender_GRBL_09
             grpTriangle.Visible = selectedShape == 2;
             grpCircle.Visible = selectedShape == 3;
             grpLine.Visible = selectedShape == 4;
-         }
+        }
 
+        private void GenerateShapeCode(short typeGeometric, Geometric shape, bool simulate)
+        {
+            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
+            IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
+            StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
+
+            //bufferCode = new StringBuilder();
+            //bufferCode = gCodeCmd;
+            
+            if (gCodeCmd != null && gCodeCmd.Length > 0)
+            {
+                numberExpectedRespones = 0;
+                txtLog.AppendText(gCodeCmd.ToString());
+
+                //GRBL returns ok/error for each line sent. This variable is used to know when the excecution has finished.
+                numberExpectedRespones = gCodeCmd.ToString().Split('\n').Length - 1;
+
+                //ManageInputs(SystemEvents.Run);
+                //SerialPortManager.ExecuteCommands(gCodeCmd);
+            }
+        }
+
+        #endregion
+
+        #region Command
         private void TxtCmd_MouseClick(object sender, MouseEventArgs e)
         {
             txtCmd.Text = string.Empty;
@@ -280,34 +332,7 @@ namespace CNC_Sender_GRBL_09
             SerialPortManager.ExecuteCommand(txtCmd.Text);
         }
 
-        private void CboCom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ManageInputs(SystemEvents.PortSelected);
-        }
-
-        private void ShowResponse(string data)
-        {
-            CheckForIllegalCrossThreadCalls = false;
-            txtLog.AppendText(data);
-        }
-
-        private void GenerateShapeCode(short typeGeometric, Geometric shape, bool simulate)
-        {
-            GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
-            IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
-            StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
-
-            txtLog.Text = gCodeCmd.ToString();
-
-            bufferCode = new StringBuilder();
-            bufferCode = gCodeCmd;
-
-            if (gCodeCmd != null)
-            {
-                ManageInputs(SystemEvents.Run);
-                SerialPortManager.ExecuteCommands(gCodeCmd);
-            }
-        }
+        #endregion
 
         #region Controls Enabled/Disabled
         private void ManageInputs(SystemEvents eventSystem)
@@ -344,11 +369,12 @@ namespace CNC_Sender_GRBL_09
         private void RunEvent()
         {
             grpAxesMoves.Enabled = false;
-            grpLog.Enabled = false;
+            //grpLog.Enabled = false;
             grpTraceConfig.Enabled = false;
             txtFeed.Enabled = false;
             btnHoming.Enabled = false;
-            btnStop.Enabled = false;
+            btnStop.Enabled = true;
+            btnStop.Visible = true;
         }
 
         private void OpenFinishEvent()
@@ -361,6 +387,7 @@ namespace CNC_Sender_GRBL_09
             btnHoming.Enabled = true;
             btnSetHome.Enabled = true;
             btnStop.Visible = false;
+            btnOpen.Enabled = false;
         }
 
         private void PortSelectedEvent()
@@ -377,7 +404,6 @@ namespace CNC_Sender_GRBL_09
             txtFeed.Enabled = false;
             btnHoming.Enabled = false;
             btnSetHome.Enabled = false;
-            btnOpen.Enabled = false;
             btnStop.Visible = false;
         }
         #endregion
