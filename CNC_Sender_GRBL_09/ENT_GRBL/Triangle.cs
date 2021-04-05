@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ENT_Sender_GRBL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENT_Sender_GRBL
+namespace ENT_GRBL
 {
-    public class TriangleRectangle : Geometric
+    public class Triangle : Geometric
     {
         public double Base { get; set; }
         public double Height { get; set; }
@@ -23,10 +24,8 @@ namespace ENT_Sender_GRBL
         {
             get
             {
-                return new Point(Start.X, Start.Y + Height, Start.Z);
-                //return new Point((Start.X + Base) / 2, Start.Y + Height, Start.Z);
+                return new Point((Start.X + Base) / 2, Start.Y + Height, Start.Z);
             }
         }
-
     }
 }

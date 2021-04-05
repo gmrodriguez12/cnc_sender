@@ -1,8 +1,6 @@
 ﻿using BLL_GRBL.GCodeValidation.General;
 using BLL_GRBL.GCodeValidation.Rectangle;
 using DomainValidation.Validation;
-using System.Reflection;
-using System.Resources;
 
 namespace BLL_GRBL.DomainValidation.Rectangle
 {

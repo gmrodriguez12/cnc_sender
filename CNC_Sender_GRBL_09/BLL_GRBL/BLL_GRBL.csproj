@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GCodeGenerator\SettingsGCodeGenerator\IGCodeSetting.cs" />
+    <Compile Include="GCodeGenerator\ShapeGCodeGenerator\GCodeTriangle.cs" />
     <Compile Include="GCodeValidation\Circle\CircleCenterIsValid.cs" />
     <Compile Include="GCodeValidation\Circle\CircleIsValid.cs" />
     <Compile Include="GCodeValidation\Circle\CircleRadiusIsValid.cs" />

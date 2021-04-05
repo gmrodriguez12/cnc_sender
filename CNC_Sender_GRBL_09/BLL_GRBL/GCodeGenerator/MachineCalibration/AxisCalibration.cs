@@ -1,10 +1,4 @@
 ﻿using BLL_GRBL.GCodeGenerator.SettingsGCodeGenerator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
 using static ENT_GRBL.Config.IndexSetting;
 
 namespace BLL_GRBL.GCodeGenerator.MachineCalibration
