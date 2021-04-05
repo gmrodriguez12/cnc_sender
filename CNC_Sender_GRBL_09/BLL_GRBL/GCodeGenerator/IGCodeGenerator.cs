@@ -15,7 +15,7 @@ namespace BLL_Sender_GRBL.GCodeGenerator
 
         public string ToggleRele(bool on)
         {
-            return on ? "M3" : "M5";
+            return on ? "M4" : "M5";
         }
 
         public string GMovement(Point point,double feed, string typeMovement)
