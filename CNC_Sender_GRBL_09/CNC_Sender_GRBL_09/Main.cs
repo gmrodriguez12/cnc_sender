@@ -33,6 +33,7 @@ namespace CNC_Sender_GRBL_09
         {
             cboShape.SelectedIndex = 1;
             grpAxesMoves.Enabled = false;
+            simpleMovements = new GCodeSimpleMovements();
             ManageInputs(SystemEvents.Load);
         }
 
@@ -314,7 +315,7 @@ namespace CNC_Sender_GRBL_09
                 numberExpectedRespones = gCodeCmd.ToString().Split('\n').Length - 1;
 
                 //ManageInputs(SystemEvents.Run);
-                //SerialPortManager.ExecuteCommands(gCodeCmd);
+                SerialPortManager.ExecuteCommands(gCodeCmd);
             }
         }
 
@@ -373,8 +374,8 @@ namespace CNC_Sender_GRBL_09
             grpTraceConfig.Enabled = false;
             txtFeed.Enabled = false;
             btnHoming.Enabled = false;
-            btnStop.Enabled = true;
-            btnStop.Visible = true;
+            //btnStop.Enabled = true;
+            //btnStop.Visible = true;
         }
 
         private void OpenFinishEvent()
@@ -386,7 +387,7 @@ namespace CNC_Sender_GRBL_09
             txtFeed.Enabled = true;
             btnHoming.Enabled = true;
             btnSetHome.Enabled = true;
-            btnStop.Visible = false;
+            //btnStop.Visible = false;
             btnOpen.Enabled = false;
         }
 
@@ -404,8 +405,10 @@ namespace CNC_Sender_GRBL_09
             txtFeed.Enabled = false;
             btnHoming.Enabled = false;
             btnSetHome.Enabled = false;
-            btnStop.Visible = false;
+            //btnStop.Visible = false;
+            btnOpen.Enabled = true;
         }
         #endregion
+
     }
 }

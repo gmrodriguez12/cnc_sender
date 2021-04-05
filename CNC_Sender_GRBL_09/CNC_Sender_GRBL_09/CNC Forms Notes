@@ -1,0 +1,40 @@
+load y Close
+
+- grpAxes.enabled = false
+- grpLog.enabled = false
+- grpTraceConfig.enabled = false
+- btnClose.enabled = false
+- txtFeed.enabled = false
+- btnHoming.enabled = false
+- btnSetHome.enabled = false
+- btnOpen.enabled = false
+- btnStop.visible = false
+
+
+-Port selected
+
+-btnOpen.enabled = true
+
+-Open / Finish / Stop / Error Machine
+
+- grpAxes.enabled = true
+- grpLog.enabled = true
+- grpTraceConfig.enabled = true
+- btnClose.enabled = true
+- txtFeed.enabled = true
+- btnHoming.enabled = true
+- btnSetHome.enabled = true
+- btnStop.visible = false
+
+-Run
+
+- grpAxes.enabled = false
+- grpLog.enabled = false
+- grpTraceConfig.enabled = false
+- txtFeed.enabled = false
+- btnHoming.enabled = false
+- btnStop.visible = true
+
+/Error Machine 
+
+Error machine comes back to the previous run state.

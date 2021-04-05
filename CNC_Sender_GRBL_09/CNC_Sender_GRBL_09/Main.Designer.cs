@@ -42,7 +42,6 @@
             this.chkSimulateSquare = new System.Windows.Forms.CheckBox();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.grpConnection = new System.Windows.Forms.GroupBox();
-            this.btnStop = new System.Windows.Forms.Button();
             this.txtFeed = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHoming = new System.Windows.Forms.Button();
@@ -112,9 +111,6 @@
             this.cboShape = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gRBLSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calibrattToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -257,7 +253,6 @@
             // 
             // grpConnection
             // 
-            this.grpConnection.Controls.Add(this.btnStop);
             this.grpConnection.Controls.Add(this.txtFeed);
             this.grpConnection.Controls.Add(this.label2);
             this.grpConnection.Controls.Add(this.btnHoming);
@@ -277,17 +272,6 @@
             this.grpConnection.TabStop = false;
             this.grpConnection.Text = "Connection Control";
             this.grpConnection.UseCompatibleTextRendering = true;
-            // 
-            // btnStop
-            // 
-            this.btnStop.ForeColor = System.Drawing.Color.Red;
-            this.btnStop.Location = new System.Drawing.Point(404, 154);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(124, 44);
-            this.btnStop.TabIndex = 25;
-            this.btnStop.Text = "STOP";
-            this.btnStop.UseVisualStyleBackColor = true;
             // 
             // txtFeed
             // 
@@ -1049,41 +1033,19 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1674, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1674, 48);
             this.menuStrip1.TabIndex = 36;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gRBLSettingsToolStripMenuItem,
-            this.calibrattToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(121, 36);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            // 
-            // gRBLSettingsToolStripMenuItem
-            // 
-            this.gRBLSettingsToolStripMenuItem.Name = "gRBLSettingsToolStripMenuItem";
-            this.gRBLSettingsToolStripMenuItem.Size = new System.Drawing.Size(299, 44);
-            this.gRBLSettingsToolStripMenuItem.Text = "GRBL Settings";
-            // 
-            // calibrattToolStripMenuItem
-            // 
-            this.calibrattToolStripMenuItem.Name = "calibrattToolStripMenuItem";
-            this.calibrattToolStripMenuItem.Size = new System.Drawing.Size(299, 44);
-            this.calibrattToolStripMenuItem.Text = "Calibrate Axes";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutSimpleCNCSenderForGRBL09ToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(100, 40);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // aboutSimpleCNCSenderForGRBL09ToolStripMenuItem
@@ -1228,13 +1190,9 @@
         private System.Windows.Forms.TextBox txtCmd;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gRBLSettingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calibrattToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutSimpleCNCSenderForGRBL09ToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button btnStop;
     }
 }
 
