@@ -24,7 +24,6 @@ namespace ENT_Sender_GRBL
             get
             {
                 return new Point(Start.X, Start.Y + Height, Start.Z);
-                //return new Point((Start.X + Base) / 2, Start.Y + Height, Start.Z);
             }
         }
 

@@ -181,7 +181,7 @@ namespace CNC_Sender_GRBL_09
             bool simulate = chkSimulateSquare.Checked;
             string[] start = txtRectangleOrigin.Text.Split(',');
 
-            TriangleRectangle triangle = new TriangleRectangle()
+            Triangle triangle = new Triangle()
             {
                 Start = new Point(double.Parse(start[0]), double.Parse(start[1]), simulate ? (double)SAFE_VERTICAL_HEIGHT_CM : 0),
                 Feed = int.Parse(txtFeed.Text),

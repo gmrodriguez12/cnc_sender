@@ -1,4 +1,5 @@
 ﻿using BLL_Sender_GRBL.GCodeGenerator;
+using ENT_GRBL;
 using ENT_Sender_GRBL;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,33 @@ namespace BLL_GRBL.GCodeGenerator.ShapeGCodeGenerator
     {
         public override StringBuilder GenerateGCode(Geometric shape)
         {
-            throw new NotImplementedException();
+            Triangle triangle = (Triangle)shape;
+            return GenerateGcode(triangle, false);
         }
 
         public override StringBuilder GenerateSimulatorGCode(Geometric shape)
         {
-            throw new NotImplementedException();
+            Triangle triangle = (Triangle)shape;
+            return GenerateGcode(triangle, true);
+        }
+
+        private StringBuilder GenerateGcode(Triangle triangle, bool isSimulator)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(GMovement(triangle.Start, "G0"));
+
+            if (!isSimulator)
+                sb.AppendLine(ToggleRele(true));
+
+            sb.AppendLine(GMovement(triangle.A, triangle.Feed, "G1"));
+            sb.AppendLine(GMovement(triangle.B, triangle.Feed, "G1"));
+            sb.AppendLine(GMovement(triangle.Start, triangle.Feed, "G1"));
+
+            if (!isSimulator)
+                sb.AppendLine(ToggleRele(false));
+
+            sb.AppendLine(ReturnToHome(triangle.SafetyHeightZ));
+            return sb;
         }
     }
 }
