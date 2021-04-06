@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ENT_GRBL.Config
+﻿namespace ENT_GRBL.Config
 {
     /// <summary>
     /// Class for save in memory config of GRBL 0.9

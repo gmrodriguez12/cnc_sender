@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ENT_Sender_GRBL.CustomExceptions;
-
-namespace ENT_Sender_GRBL
+﻿namespace ENT_Sender_GRBL
 {
     public class Circle : Geometric
     {

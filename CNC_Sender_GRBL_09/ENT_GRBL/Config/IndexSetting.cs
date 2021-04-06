@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ENT_GRBL.Config
+﻿namespace ENT_GRBL.Config
 {
     public static class IndexSetting
     {
