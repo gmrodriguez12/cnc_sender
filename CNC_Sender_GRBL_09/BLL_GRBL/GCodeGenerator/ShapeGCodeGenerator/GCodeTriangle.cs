@@ -1,11 +1,6 @@
 ﻿using BLL_Sender_GRBL.GCodeGenerator;
-using ENT_GRBL;
 using ENT_Sender_GRBL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL_GRBL.GCodeGenerator.ShapeGCodeGenerator
 {

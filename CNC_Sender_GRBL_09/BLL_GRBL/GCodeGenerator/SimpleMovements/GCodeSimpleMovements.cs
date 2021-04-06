@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using ENT_Sender_GRBL;
+﻿using System.Text;
 
 namespace BLL_Sender_GRBL.GCodeGenerator.SimpleMovements
 {

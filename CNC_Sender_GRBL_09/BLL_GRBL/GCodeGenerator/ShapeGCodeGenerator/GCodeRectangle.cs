@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using BLL_GRBL.DomainValidation;
 using BLL_GRBL.DomainValidation.Rectangle;
 using ENT_Sender_GRBL;
 

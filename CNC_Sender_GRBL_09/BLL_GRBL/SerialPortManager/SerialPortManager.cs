@@ -29,7 +29,6 @@ namespace BLL_Sender_GRBL.SerialPortManager
                 serial.Handshake = Handshake.None;
                 serial.NewLine = "\n";
                 serial.WriteTimeout = 2000;
-                //serial.ReadTimeout = 2000;
                 serial.DtrEnable = true;
                 serial.RtsEnable = true;
                 serial.DataReceived += new SerialDataReceivedEventHandler(Port_DataReceived);

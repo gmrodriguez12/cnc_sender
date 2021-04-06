@@ -1,5 +1,4 @@
-﻿using System;
-namespace BLL_Sender_GRBL.GCodeGenerator.SimpleMovements
+﻿namespace BLL_Sender_GRBL.GCodeGenerator.SimpleMovements
 {
     public class GCodeHome
     {
