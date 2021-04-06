@@ -1,14 +1,9 @@
 ﻿using BLL_Sender_GRBL.GCodeGenerator;
 using BLL_Sender_GRBL.GCodeGenerator.SimpleMovements;
 using BLL_Sender_GRBL.SerialPortManager;
-using ENT_GRBL.Config;
 using ENT_Sender_GRBL;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.IO.Ports;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using static ENT_Sender_GRBL.Enum.EnumHelpers;
 
@@ -17,11 +12,12 @@ namespace CNC_Sender_GRBL_09
     public partial class Main : Form
     {
         const int SAFE_VERTICAL_HEIGHT_CM = 10;
-        //StringBuilder bufferCode = new StringBuilder();
-        List<string> grblCode = new List<string>();
         int numberExpectedRespones = 0;
         GCodeSimpleMovements simpleMovements = null;
         double feed = 0;
+        const char X = 'x';
+        const char Y = 'y';
+        const char Z = 'z';
 
         public Main()
         {
@@ -104,16 +100,14 @@ namespace CNC_Sender_GRBL_09
             }
             else if (data.Contains("error"))
             {
-                //pending implement solution to show in red the affected line.
+                //TODO pending implement solution to show in red the affected line.
                 txtLog.AppendText("Execution end with error");
                 numberExpectedRespones = (numberExpectedRespones - data.Split('\n').Length-1);
             }
             
             if(numberExpectedRespones <= 0)
-            {
-                //txtLog.AppendText("Execution end success\n");
                 ManageInputs(SystemEvents.Finish);
-            }
+            
         }
 
         #endregion
@@ -121,55 +115,55 @@ namespace CNC_Sender_GRBL_09
         #region Axis movement
         private void btnXleft_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(txtDistance.Text) * -1;
-            StringBuilder sb = simpleMovements.MoveX(distance, feed);
-            txtLog.Text = sb.ToString();
-
-            SerialPortManager.ExecuteCommands(sb);
+            MoveAxis(X, false);
         }
 
         private void btnXright_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(txtDistance.Text);
-            StringBuilder sb = simpleMovements.MoveX(distance, feed);
-            txtLog.Text = sb.ToString();
-
-            SerialPortManager.ExecuteCommands(sb);
+            MoveAxis(X, true);
         }
 
         private void btnYleft_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(txtDistance.Text) * -1;
-            StringBuilder sb = simpleMovements.MoveY(distance, feed);
-            txtLog.Text = sb.ToString();
-
-            SerialPortManager.ExecuteCommands(sb);
+            MoveAxis(Y, false);
         }
 
         private void btnYrigth_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(txtDistance.Text);
-            StringBuilder sb = simpleMovements.MoveY(distance, feed);
-            txtLog.Text = sb.ToString();
-
-            SerialPortManager.ExecuteCommands(sb);
+            MoveAxis(Y, true);
         }
 
         private void btnZUp_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(txtDistance.Text);
-            StringBuilder sb = simpleMovements.MoveZ(distance, feed);
-            txtLog.Text = sb.ToString();
-
-            SerialPortManager.ExecuteCommands(sb);
+            MoveAxis(Z, true);
         }
 
         private void btnZDown_Click(object sender, EventArgs e)
         {
-            double distance = double.Parse(txtDistance.Text) * -1;
-            StringBuilder sb = simpleMovements.MoveZ(distance, feed);
-            txtLog.Text = sb.ToString();
+            MoveAxis(Z, false);
+        }
 
+        private void MoveAxis(char axis, bool rightOrUp)
+        {
+            double distance = double.Parse(txtDistance.Text);
+            distance = rightOrUp ? distance : distance * -1;
+
+            StringBuilder sb = new StringBuilder();
+
+            switch (axis)
+            {
+                case 'x':
+                    sb = simpleMovements.MoveX(distance, feed);
+                    break;
+                case 'y':
+                    sb = simpleMovements.MoveY(distance, feed);
+                    break;
+                case 'z':
+                    sb = simpleMovements.MoveZ(distance, feed);
+                    break;
+            }
+
+            txtLog.Text = sb.ToString();
             SerialPortManager.ExecuteCommands(sb);
         }
 
@@ -302,9 +296,6 @@ namespace CNC_Sender_GRBL_09
             GCodeShapeFactory gcodeFactory = new GCodeShapeFactory();
             IGCodeGenerator shapeGenerator = gcodeFactory.Build(typeGeometric);
             StringBuilder gCodeCmd = simulate ? shapeGenerator.GenerateSimulatorGCode(shape) : shapeGenerator.GenerateGCode(shape);
-
-            //bufferCode = new StringBuilder();
-            //bufferCode = gCodeCmd;
             
             if (gCodeCmd != null && gCodeCmd.Length > 0)
             {
@@ -313,9 +304,9 @@ namespace CNC_Sender_GRBL_09
 
                 //GRBL returns ok/error for each line sent. This variable is used to know when the excecution has finished.
                 numberExpectedRespones = gCodeCmd.ToString().Split('\n').Length - 1;
-
-                //ManageInputs(SystemEvents.Run);
                 SerialPortManager.ExecuteCommands(gCodeCmd);
+
+                //TODO manage Input when GRBL Return error
             }
         }
 
