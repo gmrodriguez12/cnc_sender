@@ -89,67 +89,8 @@ namespace BLL_Sender_GRBL.SerialPortManager
             string data = serial.ReadExisting();
             ReceiveDataEvent(data);
         }
-        
-        private static void ParseConfig()
-        {
-            Properties = Properties.Replace("\r\n", "|");
-            string[] arrProps = Properties.Split('|');
 
-            if (arrProps != null && arrProps.Length >= 29)
-            {
-                Settings = new Grbl09Settings();
-                Settings.StepPulse = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.StepPulse]);
-                Settings.StepIdleDelay = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.StepIdleDelay]);
-                Settings.StepPortInvert = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.StepPortInvert]);
 
-                Settings.DirPortInvert = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.DirPortInvert]);
-                Settings.StepEnableInvert = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.StepEnableInvert]);
-                Settings.ProbePinInvert = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.ProbePinInvert]);
-
-                Settings.StatusReport = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.StatusReport]);
-                Settings.JunctionDeviation = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.JunctionDeviation]);
-                Settings.ArcTolerance = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.ArcTolerance]);
-                Settings.ReportInches = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.ReportInches]);
-
-                Settings.SoftLimits = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.SoftLimits]);
-                Settings.HardLimits = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.HardLimits]);
-
-                Settings.HomingCycle = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.HomingCycle]);
-                Settings.HomingDirInvert = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.HomingDirInvert]);
-                Settings.HomingFeed = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.HomingFeed]);
-                Settings.HomingSeek = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.HomingSeek]);
-                Settings.HomingDebounce = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.HomingDebounce]);
-                Settings.HomingPullOff = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.HomingPullOff]);
-
-                Settings.xStepBymm = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.xStepBymm]);
-                Settings.yStepBymm = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.yStepBymm]);
-                Settings.zStepBymm = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.zStepBymm]);
-
-                Settings.xMaxRate = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.xMaxRate]);
-                Settings.yMaxRate = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.yMaxRate]);
-                Settings.zMaxRate = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.zMaxRate]);
-
-                Settings.xAcceleration = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.xAcceleration]);
-                Settings.yAcceleration = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.yAcceleration]);
-                Settings.zAcceleration = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.zAcceleration]);
-
-                Settings.xMaxTravel = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.xMaxTravel]);
-                Settings.yMaxTravel = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.yMaxTravel]);
-                Settings.zMaxTravel = GetConfigItemValue(arrProps[(int)IndexSetting.Settings_GRBL_09.zMaxTravel]);
-            }
-        }
-
-        private static string GetConfigItemValue(string item)
-        {
-            try
-            {
-                return item.Split(' ')[0].Split('=')[1];
-            }
-            catch
-            {
-                return null;
-            }
-        }
 
     }
 }
