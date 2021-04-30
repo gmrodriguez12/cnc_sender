@@ -1,0 +1,94 @@
+﻿--Rectangle--
+G0 X2 Y2 Z0
+G1 X2 Y6 Z0 F150
+G1 X4 Y6 Z0 F150
+G1 X4 Y2 Z0 F150
+G1 X2 Y2 Z0 F150
+G0 X0 Y0
+
+--Square--
+G0 X0 Y0 Z0
+G1 X0 Y4 Z0 F150
+G1 X4 Y4 Z0 F150
+G1 X4 Y0 Z0 F150
+G1 X0 Y0 Z0 F150
+G0 X0 Y0
+
+
+--Circle--
+G0 X-3 Y0 Z0
+G1 X-3 Y0 Z0 F150
+G2 X-3 Y0 I3 J0
+G0 X0 Y0
+
+
+--Triangle Rectangle--
+G0 X0 Y0 Z0
+G1 X6 Y0 Z0 F150
+G1 X6 Y3 Z0 F150
+G1 X0 Y0 Z0 F150
+G0 X0 Y0
+
+--Line--
+G0 X2 Y3 Z0
+G1 X1 Y1 Z0 F150
+G0 X0 Y0 Z10
+
+--GRBL 0.9
+
+$0=10 (step pulse, usec)
+$1=25 (step idle delay, msec)
+$2=0 (step port invert mask:00000000)
+$3=0 (dir port invert mask:00000000)
+$4=1 (step enable invert, bool)
+$5=0 (limit pins invert, bool)
+$6=0 (probe pin invert, bool)
+$10=3 (status report mask:00000011)
+$11=0.010 (junction deviation, mm)
+$12=0.002 (arc tolerance, mm)
+$13=0 (report inches, bool)
+$20=0 (soft limits, bool)
+$21=0 (hard limits, bool)
+$22=0 (homing cycle, bool)
+$23=0 (homing dir invert mask:00000000)
+$24=500.000 (homing feed, mm/min)
+$25=900.000 (homing seek, mm/min)
+$26=250 (homing debounce, msec)
+$27=1.000 (homing pull-off, mm)
+$100=39.654 (x, step/mm)
+$101=1513.000 (y, step/mm)
+$102=401.000 (z, step/mm)
+$110=1096.000 (x max rate, mm/min)
+$111=500.000 (y max rate, mm/min)
+$112=500.000 (z max rate, mm/min)
+$120=999.000 (x accel, mm/sec^2)
+$121=999.000 (y accel, mm/sec^2)
+$122=999.000 (z accel, mm/sec^2)
+$130=600.000 (x max travel, mm)
+$131=600.000 (y max travel, mm)
+$132=150.000 (z max travel, mm)
+ok
+
+
+String
+"$0=10 (step pulse, usec)\r\n$1=25 (step idle delay, msec)\r\n$2=0 (step port invert mask:00000000)\r\n$3=0 (dir port invert mask:00000000)\r\n$4=1 (step enable invert, bool)\r\n$5=0 (limit pins invert, bool)\r\n$6=0 (probe pin invert, bool)\r\n$10=3 (status report mask:00000011)\r\n$11=0.010 (junction deviation, mm)\r\n$12=0.002 (arc tolerance, mm)\r\n$13=0 (report inches, bool)\r\n$20=0 (soft limits, bool)\r\n$21=0 (hard limits, bool)\r\n$22=0 (homing cycle, bool)\r\n$23=0 (homing dir invert mask:00000000)\r\n$24=500.000 (homing feed, mm/min)\r\n$25=900.000 (homing seek, mm/min)\r\n$26=250 (homing debounce, msec)\r\n$27=1.000 (homing pull-off, mm)\r\n$100=39.654 (x, step/mm)\r\n$101=1513.000 (y, step/mm)\r\n$102=401.000 (z, step/mm)\r\n$110=1096.000 (x max rate, mm/min)\r\n$111=500.000 (y max rate, mm/min)\r\n$112=500.000 (z max rate, mm/min)\r\n$120=999.000 (x accel, mm/sec^2)\r\n$121=999.000 (y accel, mm/sec^2)\r\n$122=999.000 (z accel, mm/sec^2)\r\n$130=600.000 (x max travel, mm)\r\n$131=600.000 (y max travel, mm)\r\n$132=150.000 (z max travel, mm)\r\nok\r\n"
+
+
+
+Calibration
+
+System: Read configuration and set fixed distance label
+User: Select Axis in combo
+User: Click in Move Axis
+User: Indicate the distance traveled in mm
+User: Click in Run Currection Button
+System: Calculate difference Settings and apply it.
+Set Move Axis as Enabled = False;
+
+User: Move Axis again
+User: Indicate the distance traveled in mm
+
+
+Fitoooo!
+
+C
