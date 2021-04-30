@@ -17,7 +17,7 @@
 <h2>Limitations</h2>
 <p>Since the system works with a plasma, the minimum value of the Z-axis is zero.</p>
 <h2>Develop</h2>
-<p>This prototype was developed with WinForms C#, .NET Framework 4.5. The machine uses Arduino UNO R3 and GRBL 0.9.</p>
+<p>This prototype was developed with WinForms C#, .NET Framework 4.6. The machine uses Arduino UNO R3 and GRBL 0.9.</p>
 <p>Link for GRBL:&nbsp;<a href="https://github.com/grbl/grbl">https://github.com/grbl/grbl</a></p>
 <h2>Team</h2>
 <p><strong>Ra&uacute;l Rodr&iacute;guez</strong>, Metallurgist (Robotics Hobbyist)</p>
