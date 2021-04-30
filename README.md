@@ -1,4 +1,4 @@
-<h1>CNC Sender for GRBL 0.9</h1>
+<h1>Prototype CNC Sender for GRBL 0.9</h1>
 <p>We create a prototype for define and execute customs cuts with CNC Plasma Machine. The&nbsp;machine was created with Arduino and GRBL 0.9. This system must execute cuts of daily use in a metallurgical company. These cuts would be defined by indicating their shape and measurements through an elementary user interface.</p>
 <p>When we made this machine, we used it with Universal G-Code Sender (an excellent open-source software). Still, it required designing and generating the g-code before executing it. Not practical in daily use of a metallurgical.</p>
 <p>The following link is a small sample of the machine and this software: <a href="https://youtu.be/BqKCH0dMwMc">https://youtu.be/BqKCH0dMwMc</a></p>
